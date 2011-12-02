@@ -1,13 +1,8 @@
 package attempt.me;
 
-import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
@@ -19,11 +14,8 @@ public class Item  {
 		this.beschriftung = beschriftung;
 	}
 
-	private Choords coords;
 	public View itemView;
 	private TextView beschriftung;
-	private ViewGroup parentView;
-	private static int countItemsCreated = 0;
 	
 	
 //	public void create(LayoutInflater inflater, View _parentView, MotionEvent event) {

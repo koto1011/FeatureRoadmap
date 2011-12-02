@@ -2,27 +2,17 @@ package attempt.me;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.EventLog.Event;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 public class createSprintDialog extends Activity{
-	private int parentLayout;
-	private ViewGroup v;
-	private MotionEvent event;
-	
 	public createSprintDialog(View v, MotionEvent event)
 	{
 		super();
-		this.v = (ViewGroup) v;
 		Log.e("v: ", v.toString());
-		this.event = event;
 		
 	}
 	
