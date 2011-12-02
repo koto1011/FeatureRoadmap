@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
-import android.widget.TextView;
 
 public class ColorBall  {
  private Bitmap img; // the image of the ball

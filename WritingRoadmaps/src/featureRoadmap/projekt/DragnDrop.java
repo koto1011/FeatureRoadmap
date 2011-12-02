@@ -1,13 +1,10 @@
 package featureRoadmap.projekt;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
-import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 public class DragnDrop extends View {
 
