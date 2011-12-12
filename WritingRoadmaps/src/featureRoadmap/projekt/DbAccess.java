@@ -15,14 +15,9 @@ public class DbAccess extends SQLiteOpenHelper {
 	private static String DB_PATH = "/data/data/featureRoadmap.projekt/databases/";
 	private static int DATABASE_VERSION = 3;
 	private SQLiteDatabase myDataBase;
-	private final Context myContext;
-
 	private static final String SPRINT_TABLE_NAME = "sprints";
 	private static final String SPRINT_NAME = "name";
 	private static final String SPRINT_DESCRIPTION = "description";
-	private static final String NEWS_BODY = "body";
-	private static final String NEWS_ISSUE_DATE = "issue_date";
-
 	private static final String SPRINT_TABLE_CREATE = "create table "
 			+ SPRINT_TABLE_NAME + "(" + SPRINT_NAME + " varchar(50) primary key, "
 			+ SPRINT_DESCRIPTION +")"; 
@@ -38,7 +33,6 @@ public class DbAccess extends SQLiteOpenHelper {
 	public DbAccess(Context context) {
 
 		super(context, DB_NAME, null, DATABASE_VERSION);
-		this.myContext = context;
 		try {
 			this.createDataBase();
 		} catch (IOException e) {

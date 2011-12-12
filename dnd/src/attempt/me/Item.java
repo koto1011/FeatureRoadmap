@@ -19,13 +19,10 @@ public class Item{
 		Item.scrollView = scrollView;    
 	}
 
-	private Choords coords;
 	public View itemView;
 	public static OwnHorizontalScrollView scrollView;
 	public int displayWidth;
 	private TextView beschriftung;
-	private ViewGroup parentView;
-	private static int countItemsCreated = 0;
 	
 	
 //	public void create(LayoutInflater inflater, View _parentView, MotionEvent event) {
