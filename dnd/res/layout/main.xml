@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<attempt.me.OwnHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:scrollbarDefaultDelayBeforeFade="500000"
+    android:scrollbarFadeDuration="0"
+    android:scrollbars="horizontal">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/roadmap"
     android:layout_width="match_parent"
@@ -95,3 +105,4 @@
     </FrameLayout>
 
 </LinearLayout>
+</attempt.me.OwnHorizontalScrollView>
