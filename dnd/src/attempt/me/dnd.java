@@ -10,13 +10,17 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -124,28 +128,31 @@ public class dnd extends Activity
     				// Fehler
     			}
     			
+   			
+    			View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
+
+    	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+    			int displayWidth = display.getWidth();
+
     			TextView beschriftung = new TextView(getApplicationContext());
 				((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
 				beschriftung.setPadding((int)event.getRawX() - (106 / 2), 0, 0, 0);
     			beschriftung.setText("text");
     			
-    			View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
-
-    			Item item = new Item(itemView, beschriftung);
+    			Item item = new Item(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
+    			
     			items.add(item);
     			itemView.setOnTouchListener(item.dragItem);
     		
     			// position the new item at the clicked position
     			FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
 
-    			par.leftMargin = (int)event.getRawX() - (106 / 2);
+    			par.leftMargin = Item.scrollView.getScrollX() + (int)event.getRawX() - (106 / 2);
     			par.topMargin = 0;			// (itemView.getWidth()/2);
     			itemView.setLayoutParams(par);
-
+    			
     			countItemsCreated++;
-    			
-    			
-    			
+
     			return true;
     		}
     		else

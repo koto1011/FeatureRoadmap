@@ -1,26 +1,28 @@
 package attempt.me;
 
-import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
+//import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
+import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
-public class Item  {
-	public Item(View itemView, TextView beschriftung) {
+public class Item{
+	public Item(View itemView, TextView beschriftung, OwnHorizontalScrollView scrollView, int displayWidth) {
 		this.itemView = itemView;
 		this.beschriftung = beschriftung;
+		this.displayWidth = displayWidth;
+		Item.scrollView = scrollView;    
 	}
 
 	private Choords coords;
 	public View itemView;
+	public static OwnHorizontalScrollView scrollView;
+	public int displayWidth;
 	private TextView beschriftung;
 	private ViewGroup parentView;
 	private static int countItemsCreated = 0;
@@ -81,9 +83,24 @@ public class Item  {
 						case MotionEvent.ACTION_MOVE:
 						{
 							Log.e("onTouch: ", "case: item - MOVE");
-		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
+		                    par.leftMargin = Item.scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);		                    
+							
+		                    Log.e("Pos > disWidth", ""+ (int) event.getRawX() + "..." + displayWidth * 0.85);
+		                    if((int) event.getRawX() > displayWidth * 0.85)
+		                    {
+		                    	Log.e("Scroll mich!", "5px rechts");
+		                    	scrollView.smoothScrollBy(20, 0);
+		                    }
+		                    
+		                    if((int) event.getRawX() < displayWidth * 0.15)
+		                    {
+		                    	Log.e("Scroll mich!", "5px rechts");
+		                    	scrollView.smoothScrollBy(-20, 0);
+		                    }
+		                    
 							v.setLayoutParams(par);		
 							dnd.verschiebeBeschriftung(v);
+							
 							break;
 						}//inner case MOVE
 						case MotionEvent.ACTION_UP:
@@ -91,18 +108,36 @@ public class Item  {
 							Log.e("onTouch: ", "case: item - UP");
 			
 							Log.e("onTouch: ", "case: item - UP, RawX: "+(int)event.getRawX());
-		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
+		                    par.leftMargin = Item.scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
 							dnd.verschiebeBeschriftung(v);
-
+							
+							Item.scrollView.setIsScrollable(true);	
+							
 							Log.e("LeftMargin: ", ""+v.getLeft());
 							break;
 						}//inner case UP
+						case MotionEvent.ACTION_CANCEL:
+						{
+							Log.e("onTouch: ", "case: item - CANCEL");
+							Log.e("onTouch: ", "case: item - CANCEL, RawX: "+(int)event.getRawX());
+		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
+							v.setLayoutParams(par);
+							dnd.verschiebeBeschriftung(v);
+							
+							Item.scrollView.setIsScrollable(false);	
+							
+							Log.e("LeftMargin: ", ""+v.getLeft());
+							break;
+						}//inner case UP
+
 						case MotionEvent.ACTION_DOWN:
 						{
 							Log.e("onTouch: ", "case: item - DOWN");
 
-							v.setLayoutParams(par);
+						    Item.scrollView.setIsScrollable(false);
+		
+						    v.setLayoutParams(par);
 							dnd.verschiebeBeschriftung(v);
 							break;
 						}//inner case UP
