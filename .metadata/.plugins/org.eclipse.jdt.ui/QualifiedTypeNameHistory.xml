@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="com.tom.dao.DataManager"/>
+<fullyQualifiedTypeName name="com.tom.pojo.Milestone"/>
+<fullyQualifiedTypeName name="com.tom.pojo.Roadmap"/>
+<fullyQualifiedTypeName name="com.wpfandroid.pojo.Milestone"/>
+<fullyQualifiedTypeName name="com.wpfandroid.pojo.Roadmap"/>
+<fullyQualifiedTypeName name="android.app.ListActivity"/>
+<fullyQualifiedTypeName name="com.wpfandroid.presentation.R"/>
+<fullyQualifiedTypeName name="com.wpfandroid.presentation.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
+</qualifiedTypeNameHistroy>

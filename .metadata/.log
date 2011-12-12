@@ -1,0 +1,977 @@
+!SESSION 2011-12-02 09:19:49.374 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.033
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.039
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.042
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.043
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.046
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.047
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.054
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.056
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.058
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.063
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.068
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 09:20:24.070
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.resources 4 4 2011-12-02 09:23:08.310
+!MESSAGE Exception occurred while saving project preferences: /dnd/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$2.run(ProjectPreferences.java:611)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:628)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.flush(EclipsePreferences.java:353)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:380)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2936)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:412)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:321)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:239)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:645)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:469)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:460)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$1.execute(NewProjectCreator.java:272)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2011-12-02 09:23:08.312
+!MESSAGE A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2011-12-02 09:23:08.316
+!MESSAGE Exception occurred while saving project preferences: /dnd/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$2.run(ProjectPreferences.java:611)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:628)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.flush(EclipsePreferences.java:353)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:380)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2936)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:414)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:321)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:239)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:645)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:469)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:460)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$1.execute(NewProjectCreator.java:272)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2011-12-02 09:23:08.316
+!MESSAGE A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2011-12-02 09:23:08.319
+!MESSAGE Exception occurred while saving project preferences: /dnd/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$2.run(ProjectPreferences.java:611)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:628)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.flush(EclipsePreferences.java:353)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:380)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2936)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:416)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:321)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:239)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:645)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:469)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:460)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$1.execute(NewProjectCreator.java:272)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2011-12-02 09:23:08.319
+!MESSAGE A resource already exists on disk 'D:\Projects\FeatureRoadmap\dnd\.settings'.
+
+!ENTRY org.eclipse.ui 4 4 2011-12-02 10:17:20.928
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-12-02 10:18:20.000
+!MESSAGE Failed to load properties file for project 'FeatureRoadmapActivity'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-12-02 10:26:52.561
+!MESSAGE Failed to load properties file for project 'FeatureRoadmapDBAccessActivity'
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2011-12-02 10:42:39.338
+!MESSAGE Failed to render set of icons for TabHost
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-12-02 10:42:39.341
+!MESSAGE Could not create tab content because could not find view with id -1
+!STACK 0
+java.lang.RuntimeException: Could not create tab content because could not find view with id -1
+	at android.widget.TabHost$ViewIdContentStrategy.<init>(TabHost.java:593)
+	at android.widget.TabHost$ViewIdContentStrategy.<init>(TabHost.java:584)
+	at android.widget.TabHost$TabSpec.setContent(TabHost.java:441)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.setupTabHost(RenderSessionImpl.java:1041)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:892)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:967)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:967)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:293)
+	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:318)
+	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:325)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.RenderService.createRenderSession(RenderService.java:372)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.render(PreviewIconFactory.java:271)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.initColors(PreviewIconFactory.java:579)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.getBackgroundColor(PreviewIconFactory.java:554)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PaletteControl.reloadPalette(PaletteControl.java:424)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.reloadPalette(GraphicalEditorPart.java:1084)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart$ConfigListener.onConfigurationChange(GraphicalEditorPart.java:505)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.onTargetChange(GraphicalEditorPart.java:973)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.onDescriptorsChanged(LayoutEditor.java:568)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.initUiRootNode(LayoutEditor.java:490)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.xmlModelChanged(LayoutEditor.java:309)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor$XmlModelStateListener.modelChanged(AndroidXmlEditor.java:1405)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createTextEditor(AndroidXmlEditor.java:720)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createAndroidPages(AndroidXmlEditor.java:261)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPages(AndroidXmlEditor.java:251)
+	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:138)
+	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:348)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:670)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2764)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:651)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:610)
+	at com.android.ide.eclipse.adt.AdtPlugin.openFile(AdtPlugin.java:1805)
+	at com.android.ide.eclipse.adt.AdtPlugin.openFile(AdtPlugin.java:1778)
+	at com.android.ide.eclipse.adt.internal.editors.xml.Hyperlinks$ResourceLink.open(Hyperlinks.java:1506)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$LinkListInformationControl.openSelectedLink(MultipleHyperlinkPresenter.java:367)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$LinkListInformationControl.access$1(MultipleHyperlinkPresenter.java:359)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$4.mouseUp(MultipleHyperlinkPresenter.java:335)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:219)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2011-12-02 10:42:39.368
+!MESSAGE Failed to render set of icons for TabWidget
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-12-02 10:42:39.372
+!MESSAGE Could not create tab content because could not find view with id -1
+!STACK 0
+java.lang.RuntimeException: Could not create tab content because could not find view with id -1
+	at android.widget.TabHost$ViewIdContentStrategy.<init>(TabHost.java:593)
+	at android.widget.TabHost$ViewIdContentStrategy.<init>(TabHost.java:584)
+	at android.widget.TabHost$TabSpec.setContent(TabHost.java:441)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.setupTabHost(RenderSessionImpl.java:1041)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:892)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:967)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.postInflateProcess(RenderSessionImpl.java:967)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:293)
+	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:318)
+	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:325)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.RenderService.createRenderSession(RenderService.java:372)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.render(PreviewIconFactory.java:271)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.initColors(PreviewIconFactory.java:579)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.getBackgroundColor(PreviewIconFactory.java:554)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PaletteControl.reloadPalette(PaletteControl.java:424)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.reloadPalette(GraphicalEditorPart.java:1084)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart$ConfigListener.onConfigurationChange(GraphicalEditorPart.java:505)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.onTargetChange(GraphicalEditorPart.java:973)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.onDescriptorsChanged(LayoutEditor.java:568)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.initUiRootNode(LayoutEditor.java:490)
+	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditor.xmlModelChanged(LayoutEditor.java:309)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor$XmlModelStateListener.modelChanged(AndroidXmlEditor.java:1405)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createTextEditor(AndroidXmlEditor.java:720)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createAndroidPages(AndroidXmlEditor.java:261)
+	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPages(AndroidXmlEditor.java:251)
+	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:138)
+	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:348)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:670)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:465)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:289)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2945)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2850)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2842)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2793)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2789)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2773)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2764)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:651)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:610)
+	at com.android.ide.eclipse.adt.AdtPlugin.openFile(AdtPlugin.java:1805)
+	at com.android.ide.eclipse.adt.AdtPlugin.openFile(AdtPlugin.java:1778)
+	at com.android.ide.eclipse.adt.internal.editors.xml.Hyperlinks$ResourceLink.open(Hyperlinks.java:1506)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$LinkListInformationControl.openSelectedLink(MultipleHyperlinkPresenter.java:367)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$LinkListInformationControl.access$1(MultipleHyperlinkPresenter.java:359)
+	at org.eclipse.jface.text.hyperlink.MultipleHyperlinkPresenter$4.mouseUp(MultipleHyperlinkPresenter.java:335)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:219)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4165)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3754)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY org.eclipse.ui 4 0 2011-12-02 10:44:12.935
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more
+!SESSION 2011-12-02 12:15:34.748 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.839
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.859
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.873
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.876
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.883
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.886
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.902
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.915
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.922
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.926
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.933
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-02 12:16:04.936
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.ui 4 4 2011-12-02 15:53:35.073
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-12-05 00:06:19.249 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.184
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.250
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.258
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.263
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.268
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.270
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.280
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.283
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.290
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.293
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.299
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:06:33.302
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+!SESSION 2011-12-05 00:11:04.004 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.201
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.208
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.212
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.214
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.217
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.219
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.227
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.229
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.232
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.237
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.243
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-05 00:11:11.246
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.ui 4 4 2011-12-05 00:12:56.607
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-12-09 08:32:16.637 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-12-09 08:34:04.526
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.ui 4 0 2011-12-09 10:25:00.351
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4140)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: java.lang.NullPointerException
+	at com.android.ddmuilib.logcat.LogCatReceiverFactory.newReceiver(LogCatReceiverFactory.java:57)
+	at com.android.ddmuilib.logcat.LogCatPanel.deviceSelected(LogCatPanel.java:229)
+	at com.android.ddmuilib.SelectionDependentPanel.deviceSelected(SelectionDependentPanel.java:52)
+	at com.android.ide.eclipse.ddms.views.SelectionDependentViewPart.selectionChanged(SelectionDependentViewPart.java:67)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$6.run(DdmsPlugin.java:690)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more
+
+!ENTRY org.eclipse.ui 4 4 2011-12-09 10:30:23.094
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:30:46.575
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:30:46.575
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:30:46.578
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:30:46.578
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:30:46.580
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:30:46.580
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:34:48.508
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:34:48.508
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:34:48.514
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:34:48.515
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:34:48.520
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:34:48.521
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:37:26.643
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:37:26.643
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:37:26.646
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:37:26.646
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 13:37:26.648
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 13:37:26.649
+!MESSAGE VM does not support access watchpoints.
+!SESSION 2011-12-09 14:12:07.606 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.148
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.367
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.374
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.379
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.386
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.390
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.402
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.411
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.415
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.418
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.424
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 14:14:26.426
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 14:33:13.462
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 14:33:13.464
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 14:33:13.471
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 14:33:13.471
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2011-12-09 14:33:13.476
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: VM does not support access watchpoints.
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.notSupported(JavaWatchpoint.java:176)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.createRequest(JavaWatchpoint.java:148)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleClassPrepareEvent(JavaBreakpoint.java:336)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.handleEvent(JavaBreakpoint.java:271)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaWatchpoint.handleEvent(JavaWatchpoint.java:427)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.dispatch(EventDispatcher.java:154)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher.access$0(EventDispatcher.java:104)
+	at org.eclipse.jdt.internal.debug.core.EventDispatcher$1.run(EventDispatcher.java:248)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5011 2011-12-09 14:33:13.477
+!MESSAGE VM does not support access watchpoints.
+
+!ENTRY org.eclipse.ui 4 4 2011-12-09 14:37:24.562
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-12-09 23:50:06.223 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.024
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.144
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.152
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.157
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.165
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.171
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.180
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.183
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.186
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.188
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.196
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:50:44.198
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+!SESSION 2011-12-09 23:59:20.097 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.362
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.373
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.377
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.380
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.385
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.388
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.397
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.400
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.403
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.406
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.419
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-09 23:59:29.421
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+!SESSION 2011-12-10 00:08:50.055 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.816
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.924
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.931
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.936
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.943
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.947
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.966
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.971
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.978
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.983
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.989
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:09:56.991
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+!SESSION 2011-12-10 00:21:34.530 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.003
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.010
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.013
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.015
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.017
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.019
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.027
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.029
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.032
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.034
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.039
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:21:45.041
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+!SESSION 2011-12-10 00:24:12.528 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.608
+!MESSAGE System property http.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.614
+!MESSAGE System property http.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.618
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.619
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.622
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.624
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.632
+!MESSAGE System property https.proxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.634
+!MESSAGE System property https.proxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.636
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.638
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.645
+!MESSAGE System property socksProxyHost is not set but should be proxy.hs-karlsruhe.de.
+
+!ENTRY org.eclipse.core.net 1 0 2011-12-10 00:24:41.647
+!MESSAGE System property socksProxyPort is not set but should be 8888.
+
+!ENTRY org.eclipse.ui 4 4 2011-12-10 00:29:43.163
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-12-10 00:31:59.630
+!MESSAGE Failed to load properties file for project 'FeatureRoadmap'
+!SESSION 2011-12-11 18:33:32.038 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-12-11 18:43:35.892
+!MESSAGE Invalid preference page path: XML Syntax
