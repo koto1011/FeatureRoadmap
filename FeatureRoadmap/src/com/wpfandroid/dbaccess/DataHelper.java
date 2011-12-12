@@ -1,10 +1,10 @@
-package com.tom.DBAccess;
+package com.wpfandroid.dbaccess;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tom.pojo.Milestone;
-import com.tom.pojo.Roadmap;
+import com.wpfandroid.pojo.Milestone;
+import com.wpfandroid.pojo.Roadmap;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -142,7 +142,7 @@ public class DataHelper {
 		List<Roadmap> roadmaps = new ArrayList<Roadmap>();
 		Cursor cursor = this.db.query(TABLE_NAME_ROADMAP, new String[] {
 				"id", "name", "start_date", "end_date", "project_id" }, null,
-				null, null, null, "id desc");
+				null, null, null, "id asc");
 		
 		if (!cursor.moveToFirst()) Log.d("EXAMPLE", "cursor is empty");
 	  
