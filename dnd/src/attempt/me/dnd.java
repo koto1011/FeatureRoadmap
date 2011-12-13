@@ -146,7 +146,7 @@ public class dnd extends Activity
     			FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
 
     			par.leftMargin = Item.scrollView.getScrollX() + (int)event.getRawX() - (106 / 2);
-    			par.topMargin = 0;			// (itemView.getWidth()/2);
+    			par.topMargin = 0;
     			itemView.setLayoutParams(par);
     			
     			countItemsCreated++;

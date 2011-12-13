@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wpfandroid.dbaccess.DataHelper;
 import com.wpfandroid.pojo.Roadmap;
@@ -66,63 +72,66 @@ public class FeatureRoadmapActivity extends ListActivity {
 			
 			Log.d("EXPECTED", "End loop - Filling ArrayList of ROADMAPNAMES");
 		}
-				
+		
+		/// ####################
         setListAdapter(new ArrayAdapter<String>(this, com.wpfandroid.presentation.R.layout.simpl_list_item, ROADMAPNAMES));
 
         final ListView lv = getListView();
         lv.setTextFilterEnabled(true);
         lv.setClickable(true);
         
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-//              currentlySelected = (String) (lv.getItemAtPosition(myItemInt));
-//              //Toast.makeText(getApplicationContext(), currentlySelected,
-//      		  //		Toast.LENGTH_SHORT).show();
-//            }});
-//   
-//        
-//        final Button loadButton = (Button) findViewById(R.id.loadRoadmap);
-//        if(loadButton != null)
-//        {
-//        	loadButton.setOnClickListener(new View.OnClickListener() {
-//	            public void onClick(View view) {
-//	            	if(currentlySelected != null)
-//	            	{
-//	            		Toast.makeText(getApplicationContext(), currentlySelected,
-//	            				Toast.LENGTH_SHORT).show();
-//	            		startActivity(new Intent(FeatureRoadmapActivity.this, RoadmapActivity.class));
-//	            	}
-//	            }
-//	        });
-//        }
-//        
-//        final Button newButton = (Button) findViewById(R.id.newRoadmap);
-//        if(newButton != null)
-//        {
-//        	newButton.setOnClickListener(new View.OnClickListener() {
-//	            @SuppressWarnings("unchecked")
-//				public void onClick(View view) {
-//	            	CharSequence newName = ((TextView) findViewById(R.id.newRoadmapName)).getText();
-//	            	if(newName != null && newName.toString().isEmpty() == false)
-//	            	{
-//	            		((ArrayAdapter<String>) lv.getAdapter()).add(newName.toString());
-//	            		
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("");
-//	            		((TextView) findViewById(R.id.newRoadmapName)).clearFocus();
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).INVISIBLE);
-//	            		
-//	            		newButton.setText("New Roadmap");
-//	            	}
-//	            	else
-//	            	{
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("Insert Name here!");
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).VISIBLE);
-//	            		
-//	            		newButton.setText("Ok");
-//	            	}
-//	            		
-//	            }
-//	        });
-//        }
+        final String currentlySelected = "";
+        
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
+              //currentlySelected = (String) (lv.getItemAtPosition(myItemInt));
+              //Toast.makeText(getApplicationContext(), currentlySelected,
+      		  //		Toast.LENGTH_SHORT).show();
+            }});
+   
+        
+        final Button loadButton = (Button) findViewById(R.id.loadRoadmap);
+        if(loadButton != null)
+        {
+        	loadButton.setOnClickListener(new View.OnClickListener() {
+	            public void onClick(View view) {
+	            	if(currentlySelected != null)
+	            	{
+	            		Toast.makeText(getApplicationContext(), currentlySelected,
+	            				Toast.LENGTH_SHORT).show();
+	            		startActivity(new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class));
+	            	}
+	            }
+	        });
+        }
+        
+        final Button newButton = (Button) findViewById(R.id.newRoadmap);
+        if(newButton != null)
+        {
+        	newButton.setOnClickListener(new View.OnClickListener() {
+	            @SuppressWarnings("unchecked")
+				public void onClick(View view) {
+	            	CharSequence newName = ((TextView) findViewById(R.id.newRoadmapName)).getText();
+	            	if(newName != null && newName.toString().isEmpty() == false)
+	            	{
+	            		((ArrayAdapter<String>) lv.getAdapter()).add(newName.toString());
+	            		
+	            		((TextView) findViewById(R.id.newRoadmapName)).setText("");
+	            		((TextView) findViewById(R.id.newRoadmapName)).clearFocus();
+	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).INVISIBLE);
+	            		
+	            		newButton.setText("New Roadmap");
+	            	}
+	            	else
+	            	{
+	            		((TextView) findViewById(R.id.newRoadmapName)).setText("Insert Name here!");
+	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).VISIBLE);
+	            		
+	            		newButton.setText("Ok");
+	            	}
+	            		
+	            }
+	        });
+        }
     }
 }
