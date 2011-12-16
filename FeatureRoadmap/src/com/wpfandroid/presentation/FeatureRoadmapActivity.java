@@ -3,6 +3,7 @@ package com.wpfandroid.presentation;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +24,10 @@ public class FeatureRoadmapActivity extends ListActivity {
 	
 	public static String CURRENTLY_SELECTED = null;
 	public static ArrayList<String> ROADMAPNAMES = new ArrayList<String>();
-
+	public static Dialog dialog;
+	public static String roadmapName;
+	public static ListView lv;
+	
 	private DataHelper dh;
 	
     /** Called when the activity is first created. */
@@ -76,7 +81,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 		/// ####################
         setListAdapter(new ArrayAdapter<String>(this, com.wpfandroid.presentation.R.layout.simpl_list_item, ROADMAPNAMES));
 
-        final ListView lv = getListView();
+        lv = getListView();
         lv.setTextFilterEnabled(true);
         lv.setClickable(true);
         
@@ -111,27 +116,66 @@ public class FeatureRoadmapActivity extends ListActivity {
         	newButton.setOnClickListener(new View.OnClickListener() {
 	            @SuppressWarnings("unchecked")
 				public void onClick(View view) {
-	            	CharSequence newName = ((TextView) findViewById(R.id.newRoadmapName)).getText();
-	            	if(newName != null && newName.toString().isEmpty() == false)
-	            	{
-	            		((ArrayAdapter<String>) lv.getAdapter()).add(newName.toString());
-	            		
-	            		((TextView) findViewById(R.id.newRoadmapName)).setText("");
-	            		((TextView) findViewById(R.id.newRoadmapName)).clearFocus();
-	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).INVISIBLE);
-	            		
-	            		newButton.setText("New Roadmap");
-	            	}
-	            	else
-	            	{
-	            		((TextView) findViewById(R.id.newRoadmapName)).setText("Insert Name here!");
-	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).VISIBLE);
-	            		
-	            		newButton.setText("Ok");
-	            	}
-	            		
+	            	createRoadmapDialog();
+	            	
+//	            	CharSequence newName = ((TextView) findViewById(R.id.newRoadmapName)).getText();
+//	            	if(newName != null && newName.toString().isEmpty() == false)
+//	            	{
+//	            		((ArrayAdapter<String>) lv.getAdapter()).add(newName.toString());
+//	            		
+//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("");
+//	            		((TextView) findViewById(R.id.newRoadmapName)).clearFocus();
+//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).INVISIBLE);
+//	            		
+//	            		newButton.setText("New Roadmap");
+//	            	}
+//	            	else
+//	            	{
+//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("Insert Name here!");
+//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).VISIBLE);
+//	            		
+//	            		newButton.setText("Ok");
+//	            	}
+//	            		
 	            }
 	        });
         }
+    }
+    
+    public void createRoadmapDialog()
+    {
+    	
+    	dialog = new Dialog(FeatureRoadmapActivity.this);
+		dialog.setContentView(R.layout.createroadmap);
+		dialog.setTitle("Create new Milestone");
+		
+		dialog.show();
+		
+		final Button buttonOk = (Button) dialog.findViewById(R.id.ButtonOk);
+		buttonOk.setOnClickListener(new Button.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				FeatureRoadmapActivity.roadmapName = (String) ((EditText) dialog.findViewById(R.id.roadmapName)).getText().toString();
+    	    	createRoadmap();
+		    	dialog.dismiss();
+			}
+		});
+		
+		final Button buttonCancel = (Button) dialog.findViewById(R.id.ButtonCancel);
+		buttonCancel.setOnClickListener(new Button.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				FeatureRoadmapActivity.roadmapName = null;
+				dialog.dismiss();
+			}
+		});
+
+    }
+    
+    public void createRoadmap()
+    {
+    	((ArrayAdapter<String>) lv.getAdapter()).add(FeatureRoadmapActivity.roadmapName);
     }
 }

@@ -17,20 +17,6 @@
     </ListView>
 
     <LinearLayout
-        android:id="@+id/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <EditText
-            android:id="@+id/newRoadmapName"
-            android:visibility="invisible"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.36" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
