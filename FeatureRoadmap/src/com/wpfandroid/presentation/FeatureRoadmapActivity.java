@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class FeatureRoadmapActivity extends ListActivity {
 	public static ArrayList<String> ROADMAPNAMES = new ArrayList<String>();
 	public static Dialog dialog;
 	public static String roadmapName;
+	public static String beginDate;
+	public static String endDate;
 	public static ListView lv;
 	
 	private DataHelper dh;
@@ -116,27 +119,7 @@ public class FeatureRoadmapActivity extends ListActivity {
         	newButton.setOnClickListener(new View.OnClickListener() {
 	            @SuppressWarnings("unchecked")
 				public void onClick(View view) {
-	            	createRoadmapDialog();
-	            	
-//	            	CharSequence newName = ((TextView) findViewById(R.id.newRoadmapName)).getText();
-//	            	if(newName != null && newName.toString().isEmpty() == false)
-//	            	{
-//	            		((ArrayAdapter<String>) lv.getAdapter()).add(newName.toString());
-//	            		
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("");
-//	            		((TextView) findViewById(R.id.newRoadmapName)).clearFocus();
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).INVISIBLE);
-//	            		
-//	            		newButton.setText("New Roadmap");
-//	            	}
-//	            	else
-//	            	{
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setText("Insert Name here!");
-//	            		((TextView) findViewById(R.id.newRoadmapName)).setVisibility(((TextView) findViewById(R.id.newRoadmapName)).VISIBLE);
-//	            		
-//	            		newButton.setText("Ok");
-//	            	}
-//	            		
+	            	createRoadmapDialog();         		
 	            }
 	        });
         }
@@ -147,7 +130,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     	
     	dialog = new Dialog(FeatureRoadmapActivity.this);
 		dialog.setContentView(R.layout.createroadmap);
-		dialog.setTitle("Create new Milestone");
+		dialog.setTitle(getString(R.string.createRoadmap));
 		
 		dialog.show();
 		
@@ -157,6 +140,9 @@ public class FeatureRoadmapActivity extends ListActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				FeatureRoadmapActivity.roadmapName = (String) ((EditText) dialog.findViewById(R.id.roadmapName)).getText().toString();
+				FeatureRoadmapActivity.beginDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth());
+				FeatureRoadmapActivity.endDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth());
+				
     	    	createRoadmap();
 		    	dialog.dismiss();
 			}
@@ -176,6 +162,8 @@ public class FeatureRoadmapActivity extends ListActivity {
     
     public void createRoadmap()
     {
+    	Roadmap roadmap = new Roadmap(0, FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
+    	
     	((ArrayAdapter<String>) lv.getAdapter()).add(FeatureRoadmapActivity.roadmapName);
     }
 }

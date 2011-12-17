@@ -26,14 +26,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.36"
-            android:text="New Roadmap" />
+            android:text="@string/newRoadmap" />
 
         <Button
             android:id="@+id/loadRoadmap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.36"
-            android:text="Load Roadmap" />
+            android:text="@string/loadRoadmap" />
     </LinearLayout>
 
 </LinearLayout>

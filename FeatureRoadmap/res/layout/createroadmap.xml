@@ -9,7 +9,7 @@
             android:id="@+id/roadmapNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Roadmap-Name"
+            android:text="@string/roadmapName"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -24,7 +24,7 @@
             android:id="@+id/DateBeginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Beginn (Monat)"
+            android:text="@string/roadmapBeginDate"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <DatePicker
@@ -36,7 +36,7 @@
             android:id="@+id/DateEndText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ende (Monat)"
+            android:text="@string/roadmapEndDate"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <DatePicker
@@ -53,13 +53,13 @@
                 android:id="@+id/ButtonOk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ok" />
+                android:text="@string/Ok" />
 
             <Button
                 android:id="@+id/ButtonCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abbrechen" />
+                android:text="@string/Cancel" />
 
         </LinearLayout>
 

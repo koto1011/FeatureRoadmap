@@ -3,5 +3,18 @@
 
     <string name="hello">Hello World, FeatureRoadmapActivity!</string>
     <string name="app_name">FeatureRoadmap</string>
+    
+    <string name="createMilestone">Create New Milestone</string>
+    <string name="createRoadmap">Create New Roadmap</string>
 
+	<string name="Ok">Ok</string>
+	<string name="Cancel">Cancel</string>
+	
+	<string name="roadmapName">Roadmap Name</string>
+	<string name="milestoneName">Milestone Name</string>
+	
+	<string name="roadmapBeginDate">Roadmap Begin Date</string>
+	<string name="roadmapEndDate">Roadmap End Date</string>
+	<string name="newRoadmap">New Roadmap</string>
+	<string name="loadRoadmap">Load Roadmap</string>
 </resources>

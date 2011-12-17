@@ -52,7 +52,17 @@ public final class R {
         public static final int timeline=0x7f030006;
     }
     public static final class string {
+        public static final int Cancel=0x7f040005;
+        public static final int Ok=0x7f040004;
         public static final int app_name=0x7f040001;
+        public static final int createMilestone=0x7f040002;
+        public static final int createRoadmap=0x7f040003;
         public static final int hello=0x7f040000;
+        public static final int loadRoadmap=0x7f04000b;
+        public static final int milestoneName=0x7f040007;
+        public static final int newRoadmap=0x7f04000a;
+        public static final int roadmapBeginDate=0x7f040008;
+        public static final int roadmapEndDate=0x7f040009;
+        public static final int roadmapName=0x7f040006;
     }
 }

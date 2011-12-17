@@ -9,7 +9,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sprint Name"
+        android:text="@string/milestoneName"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -30,13 +30,13 @@
             android:id="@+id/ButtonOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK" />
+            android:text="@string/Ok" />
 
         <Button
             android:id="@+id/ButtonCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Abbrechen" />
+            android:text="@string/Cancel" />
 
     </LinearLayout>
 

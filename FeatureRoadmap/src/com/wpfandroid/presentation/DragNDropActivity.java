@@ -220,7 +220,7 @@ public class DragNDropActivity extends Activity
     {
     	dialog = new Dialog(DragNDropActivity.this);
 		dialog.setContentView(R.layout.createitem);
-		dialog.setTitle("Create new Milestone");
+		dialog.setTitle(this.getString(R.string.createMilestone));
 		
 		dialog.show();
 		
@@ -234,7 +234,7 @@ public class DragNDropActivity extends Activity
 		    	dialog.dismiss();
 			}
 		});
-		
+
 		final Button buttonCancel = (Button) dialog.findViewById(R.id.ButtonCancel);
 		buttonCancel.setOnClickListener(new Button.OnClickListener() {
 			
