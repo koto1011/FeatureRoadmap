@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, FeatureRoadmapActivity!</string>
+    <string name="app_name">FeatureRoadmap</string>
+    
+    <string name="createMilestone">Neuen Meilenstein erstellen</string>
+    <string name="createRoadmap">Neue Roadmap erstellen</string>
+
+	<string name="Ok">Ok</string>
+	<string name="Cancel">Abbrechen</string>
+	
+	<string name="roadmapName">Roadmap-Name</string>
+	<string name="milestoneName">Milestone-Name</string>
+	
+	<string name="roadmapBeginDate">Roadmap Anfangsdatum</string>
+	<string name="roadmapEndDate">Roadmap Enddatum</string>
+	<string name="newRoadmap">Neue Roadmap</string>
+	<string name="loadRoadmap">Roadmap laden</string>
+</resources>
