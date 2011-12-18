@@ -11,7 +11,7 @@
 	<string name="Cancel">Abbrechen</string>
 	
 	<string name="roadmapName">Roadmap-Name</string>
-	<string name="milestoneName">Milestone-Name</string>
+	<string name="milestoneName">Name des Meilensteins</string>
 	
 	<string name="roadmapBeginDate">Roadmap Anfangsdatum</string>
 	<string name="roadmapEndDate">Roadmap Enddatum</string>
