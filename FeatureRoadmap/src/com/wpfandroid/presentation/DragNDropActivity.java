@@ -49,6 +49,9 @@ public class DragNDropActivity extends Activity
         items = new ArrayList<MilestoneItem>();
         
         setContentView(R.layout.timeline);
+        
+        Log.e("teststring", ""+getIntent().getStringExtra("loadedRoadmap"));
+        
 
         // size the view according to the time period of the timeline of the roadmap
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);

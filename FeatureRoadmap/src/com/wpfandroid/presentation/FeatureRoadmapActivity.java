@@ -30,6 +30,8 @@ public class FeatureRoadmapActivity extends ListActivity {
 	public static String beginDate;
 	public static String endDate;
 	public static ListView lv;
+	private ArrayAdapter<String> arrayAdapter;
+	public static String currentlySelected;
 	
 	private DataHelper dh;
 	
@@ -46,9 +48,9 @@ public class FeatureRoadmapActivity extends ListActivity {
 		this.dh.deleteAllMilestones();
 		this.dh.deleteAllRoadmaps();
 
-		this.dh.createRoadmap("roadmapName1", "2011/11/01", "2011/12/29", 1);
-		this.dh.createRoadmap("roadmapName2", "2011/11/02", "2011/12/30", 1);
-		this.dh.createRoadmap("roadmapName3", "2011/11/03", "2011/12/31", 1);
+		this.dh.createRoadmap("roadmapNameA", "2011/11/01", "2011/12/29", 1);
+		this.dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
+		this.dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
 
 		this.dh.createMilestone("milestoneName1a", "description1a", "2011/12/01",
 				1);
@@ -82,19 +84,17 @@ public class FeatureRoadmapActivity extends ListActivity {
 		}
 		
 		/// ####################
-        setListAdapter(new ArrayAdapter<String>(this, com.wpfandroid.presentation.R.layout.simpl_list_item, ROADMAPNAMES));
+		arrayAdapter = new ArrayAdapter<String>(this, com.wpfandroid.presentation.R.layout.simpl_list_item, ROADMAPNAMES);
+        setListAdapter(arrayAdapter);
 
         lv = getListView();
         lv.setTextFilterEnabled(true);
         lv.setClickable(true);
-        
-        final String currentlySelected = "";
+       
         
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-              //currentlySelected = (String) (lv.getItemAtPosition(myItemInt));
-              //Toast.makeText(getApplicationContext(), currentlySelected,
-      		  //		Toast.LENGTH_SHORT).show();
+              currentlySelected = (String) (lv.getItemAtPosition(myItemInt));
             }});
    
         
@@ -105,9 +105,9 @@ public class FeatureRoadmapActivity extends ListActivity {
 	            public void onClick(View view) {
 	            	if(currentlySelected != null)
 	            	{
-	            		Toast.makeText(getApplicationContext(), currentlySelected,
-	            				Toast.LENGTH_SHORT).show();
-	            		startActivity(new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class));
+	            		Intent intent = new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class);
+	            		intent.putExtra("loadedRoadmap", "test");
+	            		startActivity(intent);
 	            	}
 	            }
 	        });
@@ -162,8 +162,23 @@ public class FeatureRoadmapActivity extends ListActivity {
     
     public void createRoadmap()
     {
-    	Roadmap roadmap = new Roadmap(0, FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
     	
-    	((ArrayAdapter<String>) lv.getAdapter()).add(FeatureRoadmapActivity.roadmapName);
+    	Long id = dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
+    	dh.selectRoadmap(0);
+    	//Roadmap roadmap = dh.selectRoadmap(id);
+    	
+    	// Roadmaps neu aus der DB laden und ListView damit befüllen
+		List<Roadmap> roadmaps = this.dh.selectAllRoadmaps();
+		
+		ROADMAPNAMES.clear();
+		
+		for (Roadmap roadmap2 : roadmaps) {
+			Log.d("EXPECTED", "Begin loop - Filling ArrayList of ROADMAPNAMES");
+			ROADMAPNAMES.add(roadmap2.getName());
+			
+			Log.d("EXPECTED", "End loop - Filling ArrayList of ROADMAPNAMES");
+		}
+		
+		arrayAdapter.notifyDataSetChanged(); 
     }
 }
