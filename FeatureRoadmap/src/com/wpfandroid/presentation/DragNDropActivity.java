@@ -134,17 +134,7 @@ public class DragNDropActivity extends Activity
 			
 			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
 			
-			beschriftung.setPadding(MilestoneItem.scrollView.getScrollX() + milestonePosX - (106 / 2), 0, 0, 0);
-			
 			items.add(item);
-			itemView.setOnTouchListener(item.dragItem);
-		
-			// position the new item at the clicked position
-			FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
-	
-			par.leftMargin = MilestoneItem.scrollView.getScrollX() + milestonePosX - (106 / 2);
-			par.topMargin = 0;
-			itemView.setLayoutParams(par);
 			
 			countItemsCreated++;
     	}
@@ -153,18 +143,6 @@ public class DragNDropActivity extends Activity
     		// action was cancelled
     	}
     	
-    }
-    
-    
-    public static void verschiebeBeschriftung(View v)
-    {
-    	for(int i = 0; i < items.size(); i++)
-    	{
-    		if(items.get(i).itemView.equals(v) == true)
-    		{
-    			items.get(i).verschiebeBeschriftung();
-    		}
-    	}
     }
     
     public void createItem()
@@ -202,18 +180,8 @@ public class DragNDropActivity extends Activity
 		
 		MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
 		
-		beschriftung.setPadding(MilestoneItem.scrollView.getScrollX() + milestonePosX - (106 / 2), 0, 0, 0);
-		
 		items.add(item);
-		itemView.setOnTouchListener(item.dragItem);
 	
-		// position the new item at the clicked position
-		FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
-
-		par.leftMargin = MilestoneItem.scrollView.getScrollX() + milestonePosX - (106 / 2);
-		par.topMargin = 0;
-		itemView.setLayoutParams(par);
-		
 		countItemsCreated++;
 
     }
@@ -222,7 +190,7 @@ public class DragNDropActivity extends Activity
     public void createItemDialog()
     {
     	dialog = new Dialog(DragNDropActivity.this);
-		dialog.setContentView(R.layout.createitem);
+		dialog.setContentView(R.layout.createmilestone);
 		dialog.setTitle(this.getString(R.string.createMilestone));
 		
 		dialog.show();

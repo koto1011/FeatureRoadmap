@@ -1,5 +1,7 @@
 package com.wpfandroid.presentation;
 
+import com.wpfandroid.pojo.Milestone;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,20 +13,38 @@ import android.widget.FrameLayout.LayoutParams;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
-public class MilestoneItem 
-	{
-		public MilestoneItem(View itemView, TextView beschriftung, OwnHorizontalScrollView scrollView, int displayWidth) {
-			this.itemView = itemView;
-			this.beschriftung = beschriftung;
-			this.displayWidth = displayWidth;
-			MilestoneItem.scrollView = scrollView;    
-	}
+public class MilestoneItem extends Milestone
+{
 
-	public View itemView;
-	public static OwnHorizontalScrollView scrollView;
-	public int displayWidth;
+	private View itemView;
+	private OwnHorizontalScrollView scrollView;
+	private int displayWidth;
 	private TextView beschriftung;
 	
+	
+	public MilestoneItem(View itemView, TextView beschriftung, OwnHorizontalScrollView scrollView, int displayWidth) 
+	{
+		this.itemView = itemView;
+		this.beschriftung = beschriftung;
+		this.displayWidth = displayWidth;
+		this.scrollView = scrollView; 
+			
+		//FeatureRoadmapActivity.this.dh.createMilestone(beschriftung.getText(), null, null, 0);
+		
+		beschriftung.setPadding(scrollView.getScrollX() + DragNDropActivity.milestonePosX - (106 / 2), 0, 0, 0);
+		
+		// position the new item at the clicked position
+		FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
+
+		par.leftMargin = scrollView.getScrollX() + DragNDropActivity.milestonePosX - (106 / 2);
+		par.topMargin = 0;
+		itemView.setLayoutParams(par);
+		
+		itemView.setOnTouchListener(this.dragItem);
+		
+		verschiebeBeschriftung();
+	}
+
 	public OnTouchListener dragItem = new OnTouchListener()
     {
 		public boolean onTouch(View v, MotionEvent event) 
@@ -39,7 +59,7 @@ public class MilestoneItem
 						case MotionEvent.ACTION_MOVE:
 						{
 							Log.e("onTouch: ", "case: item - MOVE");
-		                    par.leftMargin = MilestoneItem.scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);		                    
+		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);		                    
 							
 		                    Log.e("Pos > disWidth", ""+ (int) event.getRawX() + "..." + displayWidth * 0.85);
 		                    if((int) event.getRawX() > displayWidth * 0.85)
@@ -55,7 +75,7 @@ public class MilestoneItem
 		                    }
 		                    
 							v.setLayoutParams(par);		
-							DragNDropActivity.verschiebeBeschriftung(v);
+							verschiebeBeschriftung();
 							
 							break;
 						}//inner case MOVE
@@ -64,11 +84,11 @@ public class MilestoneItem
 							Log.e("onTouch: ", "case: item - UP");
 			
 							Log.e("onTouch: ", "case: item - UP, RawX: "+(int)event.getRawX());
-		                    par.leftMargin = MilestoneItem.scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
+		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
-							DragNDropActivity.verschiebeBeschriftung(v);
+							verschiebeBeschriftung();
 							
-							MilestoneItem.scrollView.setIsScrollable(true);	
+							scrollView.setIsScrollable(true);	
 							
 							Log.e("LeftMargin: ", ""+v.getLeft());
 							break;
@@ -79,9 +99,9 @@ public class MilestoneItem
 							Log.e("onTouch: ", "case: item - CANCEL, RawX: "+(int)event.getRawX());
 		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
-							DragNDropActivity.verschiebeBeschriftung(v);
+							verschiebeBeschriftung();
 							
-							MilestoneItem.scrollView.setIsScrollable(false);	
+							scrollView.setIsScrollable(false);	
 							
 							Log.e("LeftMargin: ", ""+v.getLeft());
 							break;
@@ -91,10 +111,10 @@ public class MilestoneItem
 						{
 							Log.e("onTouch: ", "case: item - DOWN");
 
-						    MilestoneItem.scrollView.setIsScrollable(false);
+						    scrollView.setIsScrollable(false);
 		
 						    v.setLayoutParams(par);
-							DragNDropActivity.verschiebeBeschriftung(v);
+							verschiebeBeschriftung();
 							break;
 						}//inner case UP
 					}//inner switch
@@ -103,10 +123,13 @@ public class MilestoneItem
 		}//onTouch
     };//dragItem
 
-    public void verschiebeBeschriftung()
+    private void verschiebeBeschriftung()
     {
     	FrameLayout.LayoutParams par = (LayoutParams) this.itemView.getLayoutParams();
     	beschriftung.setPadding(par.leftMargin, par.topMargin, par.rightMargin, par.bottomMargin);
     	beschriftung.invalidate();
+    	
+    	((TextView) itemView.findViewById(R.id.milestoneText)).setText(beschriftung.getText());
+    	((TextView) itemView.findViewById(R.id.milestoneText)).invalidate();
     }
 }

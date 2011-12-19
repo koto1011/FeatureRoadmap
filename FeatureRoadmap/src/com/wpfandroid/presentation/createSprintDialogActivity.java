@@ -21,7 +21,7 @@ public class createSprintDialogActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		
 		dialog = new Dialog(createSprintDialogActivity.this);
-		dialog.setContentView(R.layout.createitem);
+		dialog.setContentView(R.layout.createmilestone);
 		dialog.show();
 		
 		final Button buttonOk = (Button) dialog.findViewById(R.id.ButtonOk);

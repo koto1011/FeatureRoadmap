@@ -33,7 +33,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 	private ArrayAdapter<String> arrayAdapter;
 	public static String currentlySelected;
 	
-	private DataHelper dh;
+	public DataHelper dh;
 	
     /** Called when the activity is first created. */
     @Override
