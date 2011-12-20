@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;FeatureRoadmapActivity&apos;" deleteContents="false" description="Delete resource &apos;FeatureRoadmapActivity&apos;" element1="/FeatureRoadmapActivity" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1322817530254"/>&#x0A;<refactoring comment="Delete resource &apos;FeatureRoadmapDBAccessActivity&apos;" deleteContents="false" description="Delete resource &apos;FeatureRoadmapDBAccessActivity&apos;" element1="/FeatureRoadmapDBAccessActivity" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1322818024705"/>
-</session>
