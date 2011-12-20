@@ -5,6 +5,7 @@ import com.wpfandroid.pojo.Milestone;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 //import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class MilestoneItem extends Milestone
 		verschiebeBeschriftung();
 	}
 
+	
 	public OnTouchListener dragItem = new OnTouchListener()
     {
 		public boolean onTouch(View v, MotionEvent event) 
@@ -132,4 +134,5 @@ public class MilestoneItem extends Milestone
     	((TextView) itemView.findViewById(R.id.milestoneText)).setText(beschriftung.getText());
     	((TextView) itemView.findViewById(R.id.milestoneText)).invalidate();
     }
+    
 }

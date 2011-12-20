@@ -13,6 +13,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.WindowManager;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class DragNDropActivity extends Activity
 	public static String sprintName;
 	
 	public boolean created = false;
+	private boolean updated = false;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -68,7 +70,7 @@ public class DragNDropActivity extends Activity
     }//onCreate
     
     OnTouchListener touchBoard = new OnTouchListener()
-    {
+    { 	
     	public boolean onTouch(final View v, final MotionEvent event)
     	{
     		if((v.getId() == R.id.oben || v.getId() == R.id.unten) && event.getAction() == MotionEvent.ACTION_DOWN)
@@ -85,7 +87,7 @@ public class DragNDropActivity extends Activity
     			milestonePosX = (int) event.getRawX();
     			Log.e("RawX im Listener", ""+(int)event.getRawX());
     			
-    			createItemDialog();
+    			createItemDialog(false);
     			
     			return true;
     		}
@@ -147,53 +149,63 @@ public class DragNDropActivity extends Activity
     
     public void createItem()
     {
-    	final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		
-		if(v.getId() == R.id.timeline)
-		{
-			if(countItemsCreated % 2 == 0)
+    	if(updated == false)
+    	{
+	    	final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			
+			if(v.getId() == R.id.timeline)
 			{
-				parentView = (ViewGroup) findViewById(R.id.oben);
-				parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
+				if(countItemsCreated % 2 == 0)
+				{
+					parentView = (ViewGroup) findViewById(R.id.oben);
+					parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
+				}
+				else
+				{
+					parentView = (ViewGroup) findViewById(R.id.unten);
+					parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
+				}
 			}
 			else
 			{
-				parentView = (ViewGroup) findViewById(R.id.unten);
-				parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
+				// Fehler
 			}
-		}
-		else
-		{
-			// Fehler
-		}
-		
-    	View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
-
-        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-		int displayWidth = display.getWidth();
-
-		TextView beschriftung = new TextView(getApplicationContext());
-		((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
-		Log.e("RawX beim Erzeugen", "" + milestonePosX);
-		beschriftung.setPadding(milestonePosX - (106 / 2), 0, 0, 0);
-		beschriftung.setText(sprintName);
-		
-		MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
-		
-		items.add(item);
+			
+	    	View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
 	
-		countItemsCreated++;
+	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+			int displayWidth = display.getWidth();
+	
+			TextView beschriftung = new TextView(getApplicationContext());
+			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
+			Log.e("RawX beim Erzeugen", "" + milestonePosX);
+			beschriftung.setPadding(milestonePosX - (106 / 2), 0, 0, 0);
+			beschriftung.setText(sprintName);
+			
+			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
+			Log.e("LongClick", "Listener setzen");
+			itemView.setOnLongClickListener(editItem);
+			items.add(item);
+		
+			countItemsCreated++;
+    	}
+    	else
+    	{
+    		// DB-Update
+    	}
 
     }
     
     
-    public void createItemDialog()
+    public void createItemDialog(boolean updated)
     {
     	dialog = new Dialog(DragNDropActivity.this);
 		dialog.setContentView(R.layout.createmilestone);
 		dialog.setTitle(this.getString(R.string.createMilestone));
 		
 		dialog.show();
+		
+		this.updated = updated;
 		
 		final Button buttonOk = (Button) dialog.findViewById(R.id.ButtonOk);
 		buttonOk.setOnClickListener(new Button.OnClickListener() {
@@ -218,5 +230,15 @@ public class DragNDropActivity extends Activity
 		});
 		
 	}
+    
+	public OnLongClickListener editItem = new OnLongClickListener() {
+		
+		public boolean onLongClick(View v) {
+			Log.e("Long Clicked", "Long Clicked");
+			createItemDialog(true);
+			return false;
+		}
+	};
+	
    }
     
