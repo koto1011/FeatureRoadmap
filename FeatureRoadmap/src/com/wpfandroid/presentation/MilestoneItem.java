@@ -41,7 +41,7 @@ public class MilestoneItem extends Milestone
 		par.topMargin = 0;
 		itemView.setLayoutParams(par);
 		
-		itemView.setOnTouchListener(this.dragItem);
+		//itemView.setOnTouchListener(this.dragItem);
 		
 		verschiebeBeschriftung();
 	}

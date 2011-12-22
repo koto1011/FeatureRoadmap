@@ -74,11 +74,11 @@ public class FeatureRoadmapActivity extends ListActivity {
 				3);
 		// End - sample data to fill database
 		
-		List<Roadmap> roadmaps = this.dh.selectAllRoadmaps();
+		List<String> roadmaps = this.dh.getAllRoadmapNames();
 		
-		for (Roadmap roadmap : roadmaps) {
+		for (String roadmap : roadmaps) {
 			Log.d("EXPECTED", "Begin loop - Filling ArrayList of ROADMAPNAMES");
-			ROADMAPNAMES.add(roadmap.getName());
+			ROADMAPNAMES.add(roadmap);
 			
 			Log.d("EXPECTED", "End loop - Filling ArrayList of ROADMAPNAMES");
 		}
@@ -106,7 +106,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 	            	if(currentlySelected != null)
 	            	{
 	            		Intent intent = new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class);
-	            		intent.putExtra("loadedRoadmap", "test");
+	            		intent.putExtra("loadedRoadmap", currentlySelected);
 	            		startActivity(intent);
 	            	}
 	            }
@@ -140,8 +140,12 @@ public class FeatureRoadmapActivity extends ListActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				FeatureRoadmapActivity.roadmapName = (String) ((EditText) dialog.findViewById(R.id.roadmapName)).getText().toString();
-				FeatureRoadmapActivity.beginDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth());
-				FeatureRoadmapActivity.endDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth());
+				FeatureRoadmapActivity.beginDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth())
+						+ "/"
+						+ Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getYear());
+				FeatureRoadmapActivity.endDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth())
+						+ "/"
+						+ Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getYear());
 				
     	    	createRoadmap();
 		    	dialog.dismiss();
@@ -163,18 +167,18 @@ public class FeatureRoadmapActivity extends ListActivity {
     public void createRoadmap()
     {
     	
-    	Long id = dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
-    	dh.selectRoadmap(0);
-    	//Roadmap roadmap = dh.selectRoadmap(id);
+    	int id = (int) dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
     	
+    	Roadmap newRoadmap = dh.getRoadmapById(id);
+
     	// Roadmaps neu aus der DB laden und ListView damit befüllen
-		List<Roadmap> roadmaps = this.dh.selectAllRoadmaps();
+		List<String> roadmaps = this.dh.getAllRoadmapNames();
 		
 		ROADMAPNAMES.clear();
 		
-		for (Roadmap roadmap2 : roadmaps) {
+		for (String roadmap2 : roadmaps) {
 			Log.d("EXPECTED", "Begin loop - Filling ArrayList of ROADMAPNAMES");
-			ROADMAPNAMES.add(roadmap2.getName());
+			ROADMAPNAMES.add(roadmap2);
 			
 			Log.d("EXPECTED", "End loop - Filling ArrayList of ROADMAPNAMES");
 		}

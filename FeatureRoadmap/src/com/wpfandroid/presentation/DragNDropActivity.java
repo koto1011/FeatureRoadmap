@@ -3,6 +3,9 @@ package com.wpfandroid.presentation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.wpfandroid.dbaccess.DataHelper;
+import com.wpfandroid.pojo.Roadmap;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -40,6 +43,7 @@ public class DragNDropActivity extends Activity
 	public static int milestonePosX;
 	public static Dialog dialog;
 	public static String sprintName;
+	public Roadmap roadmap;
 	
 	public boolean created = false;
 	private boolean updated = false;
@@ -54,7 +58,27 @@ public class DragNDropActivity extends Activity
         
         Log.e("teststring", ""+getIntent().getStringExtra("loadedRoadmap"));
         
-
+        DataHelper dh = new DataHelper(this);
+        roadmap = dh.getRoadmapByName(getIntent().getStringExtra("loadedRoadmap"));
+        
+        int beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
+        int beginDateYear = Integer.parseInt(roadmap.getStartDate().split("/")[1]);
+        
+        int endDateMonth = Integer.parseInt(roadmap.getEndDate().split("/")[0]);
+        int endDateYear = Integer.parseInt(roadmap.getEndDate().split("/")[1]);
+        
+        int months = 0;
+        
+        if(beginDateYear == endDateYear)
+        {
+        	months = endDateMonth - beginDateMonth;
+        }
+        else
+        {
+        	months = endDateMonth - beginDateMonth;
+        	months = months + (endDateYear - beginDateYear) * 12;
+        }
+        
         // size the view according to the time period of the timeline of the roadmap
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
         timeline.setOnTouchListener(touchBoard);
@@ -95,57 +119,7 @@ public class DragNDropActivity extends Activity
     			return false;
     	}
     };
-   
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-    	if(resultCode == 0)
-    	{
-	    	String sprintName = data.getStringExtra("SprintName");
-	    	    	
-	    	final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			
-			if(v.getId() == R.id.timeline)
-			{
-				if(countItemsCreated % 2 == 0)
-				{
-					parentView = (ViewGroup) findViewById(R.id.oben);
-					parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
-				}
-				else
-				{
-					parentView = (ViewGroup) findViewById(R.id.unten);
-					parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
-				}
-			}
-			else
-			{
-				// Fehler
-			}
-			
-	    	View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
-	
-	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-			int displayWidth = display.getWidth();
-	
-			TextView beschriftung = new TextView(getApplicationContext());
-			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
-			Log.e("RawX beim Erzeugen", "" + milestonePosX);
-			beschriftung.setPadding(milestonePosX - (106 / 2), 0, 0, 0);
-			beschriftung.setText(sprintName);
-			
-			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
-			
-			items.add(item);
-			
-			countItemsCreated++;
-    	}
-    	else
-    	{
-    		// action was cancelled
-    	}
-    	
-    }
+
     
     public void createItem()
     {
