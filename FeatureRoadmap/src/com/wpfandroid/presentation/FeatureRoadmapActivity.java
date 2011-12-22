@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.wpfandroid.dbaccess.DataHelper;
+import com.wpfandroid.pojo.Milestone;
 import com.wpfandroid.pojo.Roadmap;
 
 public class FeatureRoadmapActivity extends ListActivity {
@@ -41,11 +42,15 @@ public class FeatureRoadmapActivity extends ListActivity {
         
         this.dh = new DataHelper(this);
         
+        //Test
+		Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
+		Log.d("EXPECTED", "Nach Neustart " + milestoneUpdateTest.toString());
+        
         // Begin - sample data to fill database
         // When not necessary comment
 		this.dh.deleteAllMilestones();
 		this.dh.deleteAllRoadmaps();
-
+		
 		this.dh.createRoadmap("roadmapNameA", "2011/11/01", "2011/12/29", 1);
 		this.dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
 		this.dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
@@ -72,6 +77,18 @@ public class FeatureRoadmapActivity extends ListActivity {
 				3);
 		// End - sample data to fill database
 		
+		// Test Milestone update
+		Log.d("EXPECTED", "Begin update test");
+		milestoneUpdateTest = this.dh.getMilestoneById(1);
+		Log.d("EXPECTED", "Nach Select " + milestoneUpdateTest.toString());
+		milestoneUpdateTest.setDescription("TEST");
+		Log.d("EXPECTED", "Nach Zuweiseung " + milestoneUpdateTest.toString());
+		this.dh.updateMilestone(milestoneUpdateTest);			
+		milestoneUpdateTest = this.dh.getMilestoneById(1);
+		Log.d("EXPECTED", "Nach Update " + milestoneUpdateTest.toString());
+		
+		
+		
 		List<String> roadmaps = this.dh.getAllRoadmapNames();
 		
 		for (String roadmap : roadmaps) {
@@ -81,7 +98,6 @@ public class FeatureRoadmapActivity extends ListActivity {
 			Log.d("EXPECTED", "End loop - Filling ArrayList of ROADMAPNAMES");
 		}
 		
-		/// ####################
 		arrayAdapter = new ArrayAdapter<String>(this, com.wpfandroid.presentation.R.layout.simpl_list_item, ROADMAPNAMES);
         setListAdapter(arrayAdapter);
 
@@ -166,10 +182,8 @@ public class FeatureRoadmapActivity extends ListActivity {
     {
     	
 
-    	int id = (int) dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
+    	Roadmap newRoadmap = dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
     	
-    	Roadmap newRoadmap = dh.getRoadmapById(id);
-
     	// Roadmaps neu aus der DB laden und ListView damit befüllen
 
 		List<String> roadmaps = this.dh.getAllRoadmapNames();

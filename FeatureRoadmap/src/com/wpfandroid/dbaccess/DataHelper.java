@@ -6,6 +6,7 @@ import java.util.List;
 import com.wpfandroid.pojo.Milestone;
 import com.wpfandroid.pojo.Roadmap;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -27,7 +28,7 @@ public class DataHelper {
 	private SQLiteStatement insertStmtRoadmap;
 	private SQLiteStatement insertStmtMilestone;
 
-	private SQLiteStatement updateStmtMilestoneById;
+//	private SQLiteStatement updateStmtMilestoneById;
 
 	private static final String INSERT_ROADMAP = "insert into "
 			+ TABLE_NAME_ROADMAP
@@ -36,25 +37,15 @@ public class DataHelper {
 			+ TABLE_NAME_MILESTONE
 			+ "(name, description, date, roadmap_id) values (?, ?, ?, ?)";
 
-	private static final String UPDATE_MILESTONE_BY_ID = "UPDATE "
-			+ TABLE_NAME_MILESTONE
-			+ " SET (name) = (?), (description) = (?), (date) = (?)"
-			+ " WHERE (id) = (?)'";
-
 	public DataHelper(Context context) {
 		this.context = context;
 		OpenHelper openHelper = new OpenHelper(this.context);
-		this.context.deleteDatabase(DATABASE_NAME);
-		this.context.deleteDatabase("example.db");
 		this.db = openHelper.getWritableDatabase();
-		// openHelper.onUpgrade(db, 1, 2);
 		this.insertStmtRoadmap = this.db.compileStatement(INSERT_ROADMAP);
 		this.insertStmtMilestone = this.db.compileStatement(INSERT_MILESTONE);
-		this.updateStmtMilestoneById = this.db
-				.compileStatement(UPDATE_MILESTONE_BY_ID);
 	}
 
-	public Roadmap getRoadmapByName(String name) {
+	private Roadmap getRoadmapByName(String name) {
 		Log.d("EXAMPLE", "getRoadmapByName - Begin");
 		Roadmap roadmap = null;
 		Cursor cursor = this.db.query(TABLE_NAME_ROADMAP, new String[] {
@@ -108,7 +99,7 @@ public class DataHelper {
 		Log.d("EXAMPLE", "getRoadmapById - Begin");
 		Milestone milestone = null;
 		Cursor cursor = this.db.query(TABLE_NAME_MILESTONE, new String[] {
-				"id", "name", "discription", "date", "roadmap_id" }, "id = "
+				"id", "name", "description", "date", "roadmap_id" }, "id = "
 				+ String.valueOf(id), null, null, null, null);
 
 		if (!cursor.moveToFirst())
@@ -129,30 +120,60 @@ public class DataHelper {
 		return milestone;
 	}
 
-	public long createRoadmap(String name, String start_date, String end_date,
+	public Roadmap createRoadmap(String name, String start_date, String end_date,
 			int project_id) {
 		this.insertStmtRoadmap.bindString(1, name);
 		this.insertStmtRoadmap.bindString(2, start_date);
 		this.insertStmtRoadmap.bindString(3, start_date);
 		this.insertStmtRoadmap.bindLong(4, project_id);
-		return this.insertStmtRoadmap.executeInsert();
+		this.insertStmtRoadmap.executeInsert();
+		return this.getRoadmapByName(name);
 	}
 
-	public long createMilestone(String name, String description, String date,
+	public Milestone createMilestone(String name, String description, String date,
 			int roadmap_id) {
 		this.insertStmtMilestone.bindString(1, name);
 		this.insertStmtMilestone.bindString(2, description);
 		this.insertStmtMilestone.bindString(3, date);
 		this.insertStmtMilestone.bindLong(4, roadmap_id);
-		return this.insertStmtMilestone.executeInsert();
+		this.insertStmtMilestone.executeInsert();
+		return this.getMilestoneByName(name);
+	}
+	
+	private Milestone getMilestoneByName(String name) {
+		Log.d("EXAMPLE", "getMilestoneByName - Begin");
+		Milestone milestone = null;
+		Cursor cursor = this.db.query(TABLE_NAME_MILESTONE, new String[] {
+				"id", "name", "description", "date", "roadmap_id" }, "name = "
+				+ name, null, null, null, null);
+
+		if (!cursor.moveToFirst())
+			Log.d("EXAMPLE", "cursor is empty");
+
+		if (cursor.moveToFirst()) {
+			milestone = new Milestone(cursor.getInt(0),
+					cursor.getString(1), cursor.getString(2),
+					cursor.getString(3), this.getRoadmapById(cursor.getInt(4)));
+		}
+
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+			Log.d("EXAMPLE", "cursor is closed");
+		}
+
+		Log.d("EXAMPLE", "getMilestoneByName - End");
+		return milestone;
 	}
 
-	public long updateMilestone(Milestone milestone) {
-		this.updateStmtMilestoneById.bindString(1, milestone.getName());
-		this.updateStmtMilestoneById.bindString(2, milestone.getDescription());
-		this.updateStmtMilestoneById.bindString(3, milestone.getDate());
-		this.updateStmtMilestoneById.bindLong(4, milestone.getId());
-		return this.updateStmtMilestoneById.executeInsert();
+	public Milestone updateMilestone(Milestone milestone) {
+		Log.d("EXAMPLE", "updateMilestoneById - Begin");
+		ContentValues args = new ContentValues();
+	    args.put("name", milestone.getName());	
+	    args.put("description", milestone.getDescription());
+	    args.put("date", milestone.getDate());
+		db.update(TABLE_NAME_MILESTONE, args, "id = " + milestone.getId(), null);
+		Log.d("EXAMPLE", "updateMilestoneById - End");
+		return milestone;
 	}
 
 	public void deleteAllRoadmaps() {
