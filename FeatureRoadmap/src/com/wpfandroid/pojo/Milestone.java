@@ -62,13 +62,11 @@ public class Milestone {
 		this.roadmap = roadmap;
 	}
 
-	@Override
 	public String toString() {
 		return "Milestone [id=" + id + ", name=" + name + ", description="
 				+ description + ", date=" + date + ", roadmap=" + roadmap.getId() + "]";
 	}
 
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

@@ -291,7 +291,6 @@ public class DataHelper {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		}
 
-		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE "
 					+ TABLE_NAME_ROADMAP
@@ -301,7 +300,6 @@ public class DataHelper {
 					+ "(id INTEGER PRIMARY KEY, name TEXT UNIQUE, description TEXT, date TEXT, roadmap_id INTEGER)");
 		}
 
-		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			Log.w("EXAMPLE",
 					"Upgrading database 'FeatureRoadmap.db', this will drop tables and recreate.");

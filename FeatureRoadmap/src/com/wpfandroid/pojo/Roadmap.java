@@ -62,14 +62,12 @@ public class Roadmap {
 		this.projectId = projectId;
 	}
 
-	@Override
 	public String toString() {
 		return "Roadmap [id=" + id + ", name=" + name + ", startDate="
 				+ startDate + ", endDate=" + endDate + ", projectId="
 				+ projectId + "]";
 	}
 
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
