@@ -9,7 +9,7 @@
             android:id="@+id/roadmapNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/roadmapName"
+            android:text="@string/roadmapNameText"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText

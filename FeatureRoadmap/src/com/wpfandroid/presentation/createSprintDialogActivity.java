@@ -29,7 +29,7 @@ public class createSprintDialogActivity extends Activity{
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				createSprintDialogActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.sprintName)).getText().toString();
+				createSprintDialogActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
 				setResult(0, new Intent(
 						createSprintDialogActivity.this, 
 						DragNDropActivity.class)

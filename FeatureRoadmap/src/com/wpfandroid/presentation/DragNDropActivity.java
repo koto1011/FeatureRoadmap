@@ -186,7 +186,7 @@ public class DragNDropActivity extends Activity
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				DragNDropActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.sprintName)).getText().toString();
+				DragNDropActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
     	    	createItem();
 		    	dialog.dismiss();
 			}

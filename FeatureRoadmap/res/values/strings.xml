@@ -10,8 +10,8 @@
 	<string name="Ok">Ok</string>
 	<string name="Cancel">Cancel</string>
 	
-	<string name="roadmapName">Roadmap Name</string>
-	<string name="milestoneName">Milestone Name</string>
+	<string name="roadmapNameText">Roadmap Name</string>
+	<string name="milestoneNameText">Milestone Name</string>
 	
 	<string name="roadmapBeginDate">Roadmap Begin Date</string>
 	<string name="roadmapEndDate">Roadmap End Date</string>

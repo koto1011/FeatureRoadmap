@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wpfandroid.dbaccess.DataHelper;
 import com.wpfandroid.pojo.Roadmap;
@@ -167,11 +165,13 @@ public class FeatureRoadmapActivity extends ListActivity {
     public void createRoadmap()
     {
     	
+
     	int id = (int) dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
     	
     	Roadmap newRoadmap = dh.getRoadmapById(id);
 
     	// Roadmaps neu aus der DB laden und ListView damit befüllen
+
 		List<String> roadmaps = this.dh.getAllRoadmapNames();
 		
 		ROADMAPNAMES.clear();

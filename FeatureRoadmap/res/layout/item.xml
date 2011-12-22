@@ -7,11 +7,11 @@
         android:layout_gravity="top"
         android:background="#ff0000" >
     
-        <View android:id="@+id/Pawn"
+        <View android:id="@+id/tooltip"
 		    android:layout_width="74dp"
 		    android:layout_height="87dp"
 		    android:layout_gravity="top"
-		    android:background="@drawable/tooltip" >
+		    android:background="@drawable/tooltip_neu" >
 		</View>
 
 		<TextView

@@ -25,7 +25,6 @@ class OwnHorizontalScrollView extends HorizontalScrollView {
         return mScrollable;
     }
 
-    @Override
     public boolean onTouchEvent(MotionEvent ev) {
     	Log.e("ScrollView touched","");
         switch (ev.getAction()) {
@@ -39,7 +38,6 @@ class OwnHorizontalScrollView extends HorizontalScrollView {
         }
     }
     
-    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
     	return false;
         }
