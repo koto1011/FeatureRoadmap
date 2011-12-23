@@ -45,7 +45,7 @@ public class DataHelper {
 		this.insertStmtMilestone = this.db.compileStatement(INSERT_MILESTONE);
 	}
 
-	private Roadmap getRoadmapByName(String name) {
+	public Roadmap getRoadmapByName(String name) {
 		Log.d("EXAMPLE", "getRoadmapByName - Begin");
 		Roadmap roadmap = null;
 		Cursor cursor = this.db.query(TABLE_NAME_ROADMAP, new String[] {
@@ -140,7 +140,7 @@ public class DataHelper {
 		return this.getMilestoneByName(name);
 	}
 	
-	private Milestone getMilestoneByName(String name) {
+	public Milestone getMilestoneByName(String name) {
 		Log.d("EXAMPLE", "getMilestoneByName - Begin");
 		Milestone milestone = null;
 		Cursor cursor = this.db.query(TABLE_NAME_MILESTONE, new String[] {
