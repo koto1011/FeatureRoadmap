@@ -42,9 +42,10 @@ public class FeatureRoadmapActivity extends ListActivity {
         
         this.dh = new DataHelper(this);
         
-        //Test
-		//Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
-		//Log.d("EXPECTED", "Nach Neustart " + milestoneUpdateTest.toString());
+
+//		Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
+//		Log.d("EXPECTED", "Nach Neustart " + milestoneUpdateTest.toString());
+
         
         // Begin - sample data to fill database
         // When not necessary comment
