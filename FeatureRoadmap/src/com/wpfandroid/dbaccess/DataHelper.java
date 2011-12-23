@@ -49,8 +49,8 @@ public class DataHelper {
 		Log.d("EXAMPLE", "getRoadmapByName - Begin");
 		Roadmap roadmap = null;
 		Cursor cursor = this.db.query(TABLE_NAME_ROADMAP, new String[] {
-				"id", "name", "start_date", "end_date", "project_id" }, "name = "
-				+ name, null, null, null, null);
+				"id", "name", "start_date", "end_date", "project_id" }, "name = '"
+				+ name + "'", null, null, null, null);
 
 		if (!cursor.moveToFirst())
 			Log.d("EXAMPLE", "cursor is empty");
@@ -144,8 +144,8 @@ public class DataHelper {
 		Log.d("EXAMPLE", "getMilestoneByName - Begin");
 		Milestone milestone = null;
 		Cursor cursor = this.db.query(TABLE_NAME_MILESTONE, new String[] {
-				"id", "name", "description", "date", "roadmap_id" }, "name = "
-				+ name, null, null, null, null);
+				"id", "name", "description", "date", "roadmap_id" }, "name = '"
+				+ name + "'", null, null, null, null);
 
 		if (!cursor.moveToFirst())
 			Log.d("EXAMPLE", "cursor is empty");
