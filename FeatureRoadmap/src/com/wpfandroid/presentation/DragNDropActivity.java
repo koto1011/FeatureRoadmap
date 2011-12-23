@@ -58,7 +58,7 @@ public class DragNDropActivity extends Activity
         
         Log.e("teststring", ""+getIntent().getStringExtra("loadedRoadmap"));
         
-        DataHelper dh = new DataHelper(this);
+        DataHelper dh = FeatureRoadmapActivity.dh;
         roadmap = dh.getRoadmapByName(getIntent().getStringExtra("loadedRoadmap"));
         
         int beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
@@ -83,13 +83,14 @@ public class DragNDropActivity extends Activity
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
         timeline.setOnTouchListener(touchBoard);
         
-//        timeline.setLayoutParams(new LayoutParams(0,0)); // width and height
-//        
-//        FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
-//        oben.setLayoutParams(new LayoutParams(0,0)); // width and height
-//        
-//        FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
-//        unten.setLayoutParams(new LayoutParams(0,0)); // width and height
+        int width = (int) Math.round(months + findViewById(R.id.item).getWidth() * 1.5);
+        timeline.setLayoutParams(new LayoutParams(width,0)); // width and height
+        
+        FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
+        oben.setLayoutParams(new LayoutParams(width,0)); // width and height
+        
+        FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
+        unten.setLayoutParams(new LayoutParams(width,0)); // width and height
        
     }//onCreate
     
