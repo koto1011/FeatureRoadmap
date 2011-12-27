@@ -45,6 +45,15 @@ public class DragNDropActivity extends Activity
 	public static String sprintName;
 	public Roadmap roadmap;
 	
+	private int beginDateMonth;
+	private int beginDateYear;
+	private int endDateMonth;
+	private int endDateYear;
+	private int months;
+	private int roadmapWidth;
+	
+	private DataHelper dh;
+	
 	public boolean created = false;
 	private boolean updated = false;
 	
@@ -56,18 +65,21 @@ public class DragNDropActivity extends Activity
         
         setContentView(R.layout.timeline);
         
-        Log.e("teststring", ""+getIntent().getStringExtra("loadedRoadmap"));
+        Log.e("Roadmap-Obj", ""+getIntent().getSerializableExtra("loadedRoadmap"));
         
-        DataHelper dh = FeatureRoadmapActivity.dh;
-        roadmap = dh.getRoadmapByName(getIntent().getStringExtra("loadedRoadmap"));
+        //Log.e("DataHelper-Obj", ""+getIntent().getSerializableExtra("DataHelper"));
         
-        int beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
-        int beginDateYear = Integer.parseInt(roadmap.getStartDate().split("/")[1]);
+        //dh = (DataHelper) getIntent().getSerializableExtra("DataHelper");
         
-        int endDateMonth = Integer.parseInt(roadmap.getEndDate().split("/")[0]);
-        int endDateYear = Integer.parseInt(roadmap.getEndDate().split("/")[1]);
+        roadmap = (Roadmap) getIntent().getSerializableExtra("loadedRoadmap");
         
-        int months = 0;
+        beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[1]);
+        beginDateYear = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
+        
+        endDateMonth = Integer.parseInt(roadmap.getEndDate().split("/")[1]);
+        endDateYear = Integer.parseInt(roadmap.getEndDate().split("/")[0]);
+        
+        months = 0;
         
         if(beginDateYear == endDateYear)
         {
@@ -79,18 +91,33 @@ public class DragNDropActivity extends Activity
         	months = months + (endDateYear - beginDateYear) * 12;
         }
         
+        Log.e("months: ", ""+months);
+        
         // size the view according to the time period of the timeline of the roadmap
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
         timeline.setOnTouchListener(touchBoard);
         
-        int width = (int) Math.round(months + findViewById(R.id.item).getWidth() * 1.5);
-        timeline.setLayoutParams(new LayoutParams(width,0)); // width and height
+        // Test:
+        months++;
         
+        int roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
+        
+        //Test:
+        roadmapWidth = (int) Math.round(months * 72 * 1.5);
+        
+        Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
+        int height = 88;
+        Log.e("width: ", ""+roadmapWidth);
+        
+        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, height)); // width and height
+                
         FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
-        oben.setLayoutParams(new LayoutParams(width,0)); // width and height
+        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
         
         FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
-        unten.setLayoutParams(new LayoutParams(width,0)); // width and height
+        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        
+        createTimelineInscription();
        
     }//onCreate
     
@@ -215,5 +242,23 @@ public class DragNDropActivity extends Activity
 		}
 	};
 	
-   }
+	
+	private void createTimelineInscription()
+	{
+		String[] monate = {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez" };
+		String beschriftung = "";
+		
+		for(int monthIndex = 1; monthIndex <= months; monthIndex++)
+		{
+			String monat;
+			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + monthIndex); 
+			Log.e("Beschriftung " + monthIndex, beschriftung);
+			
+			TextView beschriftungView = new TextView(getApplicationContext());
+			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftungView);
+			beschriftungView.setPadding(roadmapWidth / months * monthIndex + (roadmapWidth / months / 2), 0, 0, 0);
+			beschriftungView.setText(beschriftung);
+		}
+	}
+}
     

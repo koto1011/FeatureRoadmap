@@ -30,7 +30,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 	public static String endDate;
 	public static ListView lv;
 	private ArrayAdapter<String> arrayAdapter;
-	public static String currentlySelected;
+	public static Roadmap currentlySelected;
 	
 	public static DataHelper dh;
 	
@@ -52,7 +52,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 		this.dh.deleteAllMilestones();
 		this.dh.deleteAllRoadmaps();
 		
-		this.dh.createRoadmap("roadmapNameA", "2011/11/01", "2011/12/29", 1);
+		this.dh.createRoadmap("roadmapNameA", "2011/06/01", "2011/12/29", 1);
 		this.dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
 		this.dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
 
@@ -109,7 +109,7 @@ public class FeatureRoadmapActivity extends ListActivity {
         
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-              currentlySelected = (String) (lv.getItemAtPosition(myItemInt));
+              FeatureRoadmapActivity.currentlySelected = dh.getRoadmapByName((String) lv.getItemAtPosition(myItemInt));
             }});
    
         
@@ -118,10 +118,11 @@ public class FeatureRoadmapActivity extends ListActivity {
         {
         	loadButton.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View view) {
-	            	if(currentlySelected != null)
+	            	if(FeatureRoadmapActivity.currentlySelected != null)
 	            	{
 	            		Intent intent = new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class);
-	            		intent.putExtra("loadedRoadmap", currentlySelected);
+	            		//intent.putExtra("DataHelper", FeatureRoadmapActivity.dh);
+	            		intent.putExtra("loadedRoadmap", FeatureRoadmapActivity.currentlySelected);
 	            		startActivity(intent);
 	            	}
 	            }
@@ -182,7 +183,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     public void createRoadmap()
     {
     	
-    	Roadmap newRoadmap = dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
+    	FeatureRoadmapActivity.currentlySelected = dh.createRoadmap(FeatureRoadmapActivity.roadmapName, FeatureRoadmapActivity.beginDate, FeatureRoadmapActivity.endDate, 1);
     	
     	// Roadmaps neu aus der DB laden und ListView damit befüllen
 

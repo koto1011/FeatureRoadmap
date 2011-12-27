@@ -1,6 +1,8 @@
 package com.wpfandroid.pojo;
 
-public class Roadmap {
+import java.io.Serializable;
+
+public class Roadmap implements Serializable {
 
 	private int id;
 	private String name;

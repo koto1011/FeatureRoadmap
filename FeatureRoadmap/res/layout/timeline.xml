@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.wpfandroid.presentation.OwnHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:fadeScrollbars="false"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawHorizontalTrack="true"
@@ -11,8 +11,8 @@
     android:scrollbars="horizontal">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/roadmap"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:fadeScrollbars="false"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawHorizontalTrack="true"
@@ -61,13 +61,6 @@
         android:layout_height="20px"
         android:layout_weight="0.00"
         android:background="#00ff00">
-            <TextView
-                android:id="@+id/beschriftung"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="Jan" />
     </RelativeLayout>
 
     <FrameLayout

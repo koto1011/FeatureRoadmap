@@ -1,5 +1,6 @@
 package com.wpfandroid.dbaccess;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
-public class DataHelper {
+public class DataHelper implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3753208037576232319L;
 	private static final String DATABASE_NAME = "FeatureRoadmap.db";
 	private static final int DATABASE_VERSION = 1;
 
@@ -124,7 +129,7 @@ public class DataHelper {
 			int project_id) {
 		this.insertStmtRoadmap.bindString(1, name);
 		this.insertStmtRoadmap.bindString(2, start_date);
-		this.insertStmtRoadmap.bindString(3, start_date);
+		this.insertStmtRoadmap.bindString(3, end_date);
 		this.insertStmtRoadmap.bindLong(4, project_id);
 		this.insertStmtRoadmap.executeInsert();
 		return this.getRoadmapByName(name);
