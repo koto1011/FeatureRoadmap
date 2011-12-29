@@ -65,6 +65,24 @@ public class DragNDropActivity extends Activity
         
         setContentView(R.layout.timeline);
         
+        final Button buttonSave = (Button) findViewById(R.id.buttonSaveAndBack);
+        buttonSave.setOnClickListener(new Button.OnClickListener() {
+			
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        
+        final Button buttonBack = (Button) findViewById(R.id.buttonBackWithoutSave);
+        buttonBack.setOnClickListener(new Button.OnClickListener() {
+			
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(DragNDropActivity.this, FeatureRoadmapActivity.class));
+			}
+		});
+        
         Log.e("Roadmap-Obj", ""+getIntent().getSerializableExtra("loadedRoadmap"));
         
         //Log.e("DataHelper-Obj", ""+getIntent().getSerializableExtra("DataHelper"));
@@ -100,7 +118,7 @@ public class DragNDropActivity extends Activity
         // Test:
         months++;
         
-        int roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
+        roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
         
         //Test:
         roadmapWidth = (int) Math.round(months * 72 * 1.5);
@@ -250,13 +268,14 @@ public class DragNDropActivity extends Activity
 		
 		for(int monthIndex = 1; monthIndex <= months; monthIndex++)
 		{
-			String monat;
 			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + monthIndex); 
 			Log.e("Beschriftung " + monthIndex, beschriftung);
+			Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1) + (roadmapWidth / months / 2));
 			
 			TextView beschriftungView = new TextView(getApplicationContext());
+			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
 			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftungView);
-			beschriftungView.setPadding(roadmapWidth / months * monthIndex + (roadmapWidth / months / 2), 0, 0, 0);
+			beschriftungView.setPadding(roadmapWidth / months * (monthIndex - 1) + (roadmapWidth / months / 2), 0, 0, 0);
 			beschriftungView.setText(beschriftung);
 		}
 	}
