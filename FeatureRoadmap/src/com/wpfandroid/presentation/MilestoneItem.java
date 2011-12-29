@@ -41,11 +41,18 @@ public class MilestoneItem extends Milestone
 		par.topMargin = 0;
 		itemView.setLayoutParams(par);
 		
-		//itemView.setOnTouchListener(this.dragItem);
-		
-		verschiebeBeschriftung();
+		//verschiebeBeschriftung();
 	}
 
+	public String getName()
+	{
+		return beschriftung.getText().toString();
+	}
+	
+	public int getPos()
+	{
+		return itemView.getLayoutParams().width;
+	}
 	
 	public OnTouchListener dragItem = new OnTouchListener()
     {
