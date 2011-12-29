@@ -9,6 +9,8 @@
 
 	<string name="Ok">Ok</string>
 	<string name="Cancel">Cancel</string>
+	<string name="SaveAndBack">Save and go back</string>
+	<string name="BackWithoutSave">Go back without saving</string>
 	
 	<string name="roadmapNameText">Roadmap Name</string>
 	<string name="milestoneNameText">Milestone Name</string>

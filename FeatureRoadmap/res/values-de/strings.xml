@@ -9,6 +9,8 @@
 
 	<string name="Ok">Ok</string>
 	<string name="Cancel">Abbrechen</string>
+	<string name="SaveAndBack">Speichern und zurück</string>
+	<string name="BackWithoutSave">Zurück gehen ohne speichern</string>
 	
 	<string name="roadmapNameText">Roadmap-Name</string>
 	<string name="milestoneNameText">Name des Meilensteins</string>
