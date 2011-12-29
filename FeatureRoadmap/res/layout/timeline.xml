@@ -96,6 +96,26 @@
                 android:text="TextView" />
         </RelativeLayout>
     </FrameLayout>
+    
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="318dp"
+        android:layout_height="wrap_content" >
 
+        <Button
+            android:id="@+id/buttonSaveAndBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.22"
+            android:text="@string/SaveAndBack" />
+
+        <Button
+            android:id="@+id/buttonBackWithoutSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:text="@string/BackWithoutSave" />
+
+    </LinearLayout>
 </LinearLayout>
 </com.wpfandroid.presentation.OwnHorizontalScrollView>
