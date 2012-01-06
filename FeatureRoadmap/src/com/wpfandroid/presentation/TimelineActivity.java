@@ -120,10 +120,8 @@ public class TimelineActivity extends Activity
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
         timeline.setOnTouchListener(touchTimeline);
         
-        //roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
-        
         //Test:
-        roadmapWidth = (int) Math.round(months * 72 * 1.5);
+        roadmapWidth = (int) Math.round(months * 72 * 2);
         
         Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
         int height = 100;
@@ -199,6 +197,7 @@ public class TimelineActivity extends Activity
 				= new MilestoneItem(itemView, 
 						milestoneName,
 						(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), 
+						TimelineActivity.milestonePosX,
 						displayWidth);
 			//Log.e("LongClick", "Listener setzen");
 			
@@ -258,6 +257,8 @@ public class TimelineActivity extends Activity
 	
 	public void saveMilestones()
 	{
+		dh.deleteAllMilestonesByRoadmapId(roadmap.getId());
+		
 		for(int i = 0; i < inflatedMilestones.size(); i++)
 		{
 			MilestoneItem milestoneItem = inflatedMilestones.get(i);
@@ -277,9 +278,7 @@ public class TimelineActivity extends Activity
 			String text = beschriftungen.get(posIndexBest);
 			Log.e("Ausgewählte Beschriftung: ", text);
 			String monthText = text.split("[0-9]")[0];
-			Log.e("monthText", monthText);
 			String year = text.replace(monthText, "");
-			Log.e("year: ", year);
 			
 			int month = -1;
 			for(int k = 0; k < monate.length; k++)
@@ -290,6 +289,7 @@ public class TimelineActivity extends Activity
 				}
 			}
 
+			Log.e("Speichern eines Milestone: ", milestoneItem.getName()+"..."+year + "/" + month + "/01");
 			dh.createMilestone(milestoneItem.getName(), "", year + "/" + month + "/01", roadmap.getId());
 			
 		}
@@ -309,12 +309,12 @@ public class TimelineActivity extends Activity
 			beschriftungen.add(beschriftung);
 			
 			Log.e("Beschriftung " + monthIndex, beschriftung);
-			Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1) + (roadmapWidth / months / 2));
+			Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1));
 			
 			TextView beschriftungView = new TextView(getApplicationContext());
 			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
 			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftungView);
-			int position = roadmapWidth / months * (monthIndex - 1) + (roadmapWidth / months / 2);
+			int position = roadmapWidth / months * (monthIndex - 1);
 			beschriftungView.setPadding(position, 0, 0, 0);
 			positionen.add(position);
 			beschriftungView.setText(beschriftung);
@@ -351,21 +351,29 @@ public class TimelineActivity extends Activity
 			int milestoneMonth = Integer.parseInt(milestone.getDate().split("/")[1]);
 			Log.e("milestoneMonth", ""+ (milestoneMonth - 1));
 			
+			String yearText = milestone.getDate().split("/")[0];
 			String monthText = monate[milestoneMonth - 1];
 			
 			int targetIndex = -1;
 			for(int j = 0; j < beschriftungen.size(); j++)
 			{
-				if(beschriftungen.get(j).startsWith(monthText))
+				if(beschriftungen.get(j).equals(monthText+yearText))
 				{
 					targetIndex = j;
 				}
 			}
 			
-			MilestoneItem item = new MilestoneItem(itemView, milestone.getName(), (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
+			MilestoneItem item 
+				= new MilestoneItem(itemView, 
+									milestone.getName(), 
+									(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(),
+									positionen.get(targetIndex),
+									displayWidth);
 
 			//itemView.setOnLongClickListener(editItem);
 			inflatedMilestones.add(item);
+			
+			Log.e("Milestone inflated beim Laden: ", milestone.getName() + "..." + milestone.getDate());
 		}
 		
 	}

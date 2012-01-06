@@ -5,13 +5,10 @@ import com.wpfandroid.pojo.Milestone;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
-//import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 public class MilestoneItem extends Milestone
@@ -21,7 +18,7 @@ public class MilestoneItem extends Milestone
 	private int displayWidth;
 	private TextView beschriftungView;
 	
-	public MilestoneItem(View itemView, String milestoneName, OwnHorizontalScrollView scrollView, int displayWidth) 
+	public MilestoneItem(View itemView, String milestoneName, OwnHorizontalScrollView scrollView, int posX, int displayWidth) 
 	{
 		this.itemView = itemView;
 		this.beschriftungView = (TextView) ((ViewGroup) itemView).getChildAt(((ViewGroup) itemView).getChildCount() - 1);
@@ -33,7 +30,7 @@ public class MilestoneItem extends Milestone
 		// position the new item at the clicked position
 		FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
 
-		par.leftMargin = scrollView.getScrollX() + TimelineActivity.milestonePosX - (106 / 2);
+		par.leftMargin = scrollView.getScrollX() + posX - (106 / 2);
 		par.topMargin = 0;
 		itemView.setLayoutParams(par);
 		
@@ -64,10 +61,8 @@ public class MilestoneItem extends Milestone
 					{
 						case MotionEvent.ACTION_MOVE:
 						{
-							Log.e("onTouch: ", "case: item - MOVE");
 		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);		                    
-							
-		                    Log.e("Pos > disWidth", ""+ (int) event.getRawX() + "..." + displayWidth * 0.85);
+
 		                    if((int) event.getRawX() > displayWidth * 0.85)
 		                    {
 		                    	Log.e("Scroll mich!", "5px rechts");
@@ -86,15 +81,12 @@ public class MilestoneItem extends Milestone
 						}//inner case MOVE
 						case MotionEvent.ACTION_UP:
 						{
-							Log.e("onTouch: ", "case: item - UP");
-			
-							Log.e("onTouch: ", "case: item - UP, RawX: "+(int)event.getRawX());
+
 		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
 													
 							scrollView.setIsScrollable(true);	
-							
-							Log.e("LeftMargin: ", ""+v.getLeft());
+
 							break;
 						}//inner case UP
 						case MotionEvent.ACTION_CANCEL:
@@ -112,8 +104,6 @@ public class MilestoneItem extends Milestone
 
 						case MotionEvent.ACTION_DOWN:
 						{
-							Log.e("onTouch: ", "case: item - DOWN");
-
 						    scrollView.setIsScrollable(false);
 		
 						    v.setLayoutParams(par);
