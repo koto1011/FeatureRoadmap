@@ -32,7 +32,7 @@ public class createSprintDialogActivity extends Activity{
 				createSprintDialogActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
 				setResult(0, new Intent(
 						createSprintDialogActivity.this, 
-						DragNDropActivity.class)
+						TimelineActivity.class)
 							.putExtra("SprintName", createSprintDialogActivity.sprintName
 						));
 				finish();

@@ -120,7 +120,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 	            public void onClick(View view) {
 	            	if(FeatureRoadmapActivity.currentlySelected != null)
 	            	{
-	            		Intent intent = new Intent(FeatureRoadmapActivity.this, DragNDropActivity.class);
+	            		Intent intent = new Intent(FeatureRoadmapActivity.this, TimelineActivity.class);
 	            		//intent.putExtra("DataHelper", FeatureRoadmapActivity.dh);
 	            		intent.putExtra("loadedRoadmap", FeatureRoadmapActivity.currentlySelected);
 	            		startActivity(intent);
