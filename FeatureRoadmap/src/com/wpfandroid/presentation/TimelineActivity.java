@@ -268,6 +268,9 @@ public class TimelineActivity extends Activity
 			int difference = 999;
 			for(int posIndex = 0; posIndex < positionen.size(); posIndex++)
 			{
+//				Log.e("difference "+ posIndex, " " + difference);
+//				Log.e("aktueller Abstand "+ posIndex, " " + Math.abs(pos - positionen.get(posIndex)));
+//				Log.e("positionen "+ posIndex, " " + positionen.get(posIndex));
 				if(Math.abs(pos - positionen.get(posIndex)) < difference)
 				{
 					difference = Math.abs(pos - positionen.get(posIndex));

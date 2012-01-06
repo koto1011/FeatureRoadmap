@@ -45,7 +45,7 @@ public class MilestoneItem extends Milestone
 	
 	public int getPos()
 	{
-		return itemView.getLayoutParams().width;
+		return ((LayoutParams) itemView.getLayoutParams()).leftMargin;
 	}
 	
 	public OnTouchListener dragItem = new OnTouchListener()
