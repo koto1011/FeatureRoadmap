@@ -55,9 +55,8 @@ public final class R {
         public static final int item=0x7f030002;
         public static final int item_unten=0x7f030003;
         public static final int main=0x7f030004;
-        public static final int roadmaplist=0x7f030005;
-        public static final int simpl_list_item=0x7f030006;
-        public static final int timeline=0x7f030007;
+        public static final int simpl_list_item=0x7f030005;
+        public static final int timeline=0x7f030006;
     }
     public static final class string {
         public static final int BackWithoutSave=0x7f040007;
@@ -70,6 +69,18 @@ public final class R {
         public static final int hello=0x7f040000;
         public static final int loadRoadmap=0x7f04000d;
         public static final int milestoneNameText=0x7f040009;
+        public static final int monat0=0x7f04000e;
+        public static final int monat1=0x7f04000f;
+        public static final int monat10=0x7f040018;
+        public static final int monat11=0x7f040019;
+        public static final int monat2=0x7f040010;
+        public static final int monat3=0x7f040011;
+        public static final int monat4=0x7f040012;
+        public static final int monat5=0x7f040013;
+        public static final int monat6=0x7f040014;
+        public static final int monat7=0x7f040015;
+        public static final int monat8=0x7f040016;
+        public static final int monat9=0x7f040017;
         public static final int newRoadmap=0x7f04000c;
         public static final int roadmapBeginDate=0x7f04000a;
         public static final int roadmapEndDate=0x7f04000b;

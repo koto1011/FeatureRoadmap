@@ -56,7 +56,7 @@ public class TimelineActivity extends Activity
 	private List<String> beschriftungen = null;
 	private List<Integer> positionen = null; 
 	
-	private final String[] monate = {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez" };
+	private String[] monate = new String[12];
 	
 	private DataHelper dh;
 	
@@ -65,7 +65,7 @@ public class TimelineActivity extends Activity
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
-    {
+    {   	
         super.onCreate(savedInstanceState);
         inflatedMilestones = new ArrayList<MilestoneItem>();
         
@@ -135,6 +135,20 @@ public class TimelineActivity extends Activity
         FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
         unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
         
+        // Monatsnamen initialisieren
+    	monate[0] = getResources().getString(R.string.monat0);
+    	monate[1] = getResources().getString(R.string.monat1);
+    	monate[2] = getResources().getString(R.string.monat2);
+    	monate[3] = getResources().getString(R.string.monat3);
+    	monate[4] = getResources().getString(R.string.monat4);
+    	monate[5] = getResources().getString(R.string.monat5);
+    	monate[6] = getResources().getString(R.string.monat6);
+    	monate[7] = getResources().getString(R.string.monat7);
+    	monate[8] = getResources().getString(R.string.monat8);
+    	monate[9] = getResources().getString(R.string.monat9);
+    	monate[10] = getResources().getString(R.string.monat10);
+    	monate[11] = getResources().getString(R.string.monat11);
+    	
         createTimelineInscription();
         inflateMilestones();
        
