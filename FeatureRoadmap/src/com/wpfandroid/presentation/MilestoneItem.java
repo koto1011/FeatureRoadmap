@@ -32,16 +32,17 @@ public class MilestoneItem extends Milestone
 			
 		//FeatureRoadmapActivity.this.dh.createMilestone(beschriftung.getText(), null, null, 0);
 		
-		beschriftung.setPadding(scrollView.getScrollX() + DragNDropActivity.milestonePosX - (106 / 2), 0, 0, 0);
+		beschriftung.setPadding(scrollView.getScrollX() + TimelineActivity.milestonePosX - (106 / 2), 0, 0, 0);
 		
 		// position the new item at the clicked position
 		FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
 
-		par.leftMargin = scrollView.getScrollX() + DragNDropActivity.milestonePosX - (106 / 2);
+		par.leftMargin = scrollView.getScrollX() + TimelineActivity.milestonePosX - (106 / 2);
 		par.topMargin = 0;
 		itemView.setLayoutParams(par);
 		
-		//verschiebeBeschriftung();
+		itemView.setOnTouchListener(dragItem);
+		
 	}
 
 	public String getName()
@@ -132,6 +133,7 @@ public class MilestoneItem extends Milestone
 		}//onTouch
     };//dragItem
 
+ 
     private void verschiebeBeschriftung()
     {
     	FrameLayout.LayoutParams par = (LayoutParams) this.itemView.getLayoutParams();

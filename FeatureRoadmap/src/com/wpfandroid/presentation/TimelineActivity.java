@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -31,7 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DragNDropActivity extends Activity 
+public class TimelineActivity extends Activity 
 {
 	public FrameLayout board;
 	public View pawn;
@@ -78,8 +79,8 @@ public class DragNDropActivity extends Activity
 			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				saveMilestone();
-				startActivity(new Intent(DragNDropActivity.this, FeatureRoadmapActivity.class));
+				saveMilestones();
+				startActivity(new Intent(TimelineActivity.this, FeatureRoadmapActivity.class));
 			}
 		});
         
@@ -88,15 +89,11 @@ public class DragNDropActivity extends Activity
 			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(DragNDropActivity.this, FeatureRoadmapActivity.class));
+				startActivity(new Intent(TimelineActivity.this, FeatureRoadmapActivity.class));
 			}
 		});
         
         Log.e("Roadmap-Obj", ""+getIntent().getSerializableExtra("loadedRoadmap"));
-        
-        //Log.e("DataHelper-Obj", ""+getIntent().getSerializableExtra("DataHelper"));
-        
-        //dh = (DataHelper) getIntent().getSerializableExtra("DataHelper");
         
         roadmap = (Roadmap) getIntent().getSerializableExtra("loadedRoadmap");
             
@@ -122,21 +119,18 @@ public class DragNDropActivity extends Activity
         
         // size the view according to the time period of the timeline of the roadmap
         RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
-        timeline.setOnTouchListener(touchBoard);
+        timeline.setOnTouchListener(touchTimeline);
         
-        // Test:
-        months++;
-        
-        roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
+        //roadmapWidth = (int) Math.round(months * ((RelativeLayout) findViewById(R.id.item)).getWidth() * 1.5);
         
         //Test:
         roadmapWidth = (int) Math.round(months * 72 * 1.5);
         
         Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
-        int height = 88;
+        int height = 100;
         Log.e("width: ", ""+roadmapWidth);
         
-        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, height)); // width and height
+        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, 30)); // width and height
                 
         FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
         oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
@@ -149,7 +143,7 @@ public class DragNDropActivity extends Activity
        
     }//onCreate
     
-    OnTouchListener touchBoard = new OnTouchListener()
+    OnTouchListener touchTimeline = new OnTouchListener()
     { 	
     	public boolean onTouch(final View v, final MotionEvent event)
     	{
@@ -161,8 +155,8 @@ public class DragNDropActivity extends Activity
     		else if(v.getId() == R.id.timeline && event.getAction() == MotionEvent.ACTION_DOWN)
     		{
     			    			
-    			DragNDropActivity.event = event;
-    			DragNDropActivity.v = v;
+    			TimelineActivity.event = event;
+    			TimelineActivity.v = v;
     			
     			milestonePosX = (int) event.getRawX();
     			Log.e("RawX im Listener", ""+(int)event.getRawX());
@@ -177,7 +171,7 @@ public class DragNDropActivity extends Activity
     };
 
     
-    public void createItem()
+    public void createMilestone()
     {
     	if(updated == false)
     	{
@@ -196,10 +190,6 @@ public class DragNDropActivity extends Activity
 					parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
 				}
 			}
-			else
-			{
-				// Fehler
-			}
 			
 	    	View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
 	
@@ -212,10 +202,15 @@ public class DragNDropActivity extends Activity
 			beschriftung.setPadding(milestonePosX - (106 / 2), 0, 0, 0);
 			beschriftung.setText(sprintName);
 			
-			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
-			Log.e("LongClick", "Listener setzen");
-			itemView.setOnLongClickListener(editItem);
-			inflatedMilestones.add(item);
+			MilestoneItem milestone 
+				= new MilestoneItem(itemView, 
+						beschriftung, 
+						(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), 
+						displayWidth);
+			//Log.e("LongClick", "Listener setzen");
+			
+			//itemView.setOnLongClickListener(editItem);
+			inflatedMilestones.add(milestone);
 		
 			countItemsCreated++;
     	}
@@ -229,9 +224,9 @@ public class DragNDropActivity extends Activity
     
     public void createItemDialog(boolean updated)
     {
-    	dialog = new Dialog(DragNDropActivity.this);
+    	dialog = new Dialog(TimelineActivity.this);
 		dialog.setContentView(R.layout.createmilestone);
-		dialog.setTitle(this.getString(R.string.createMilestone));
+		dialog.setTitle(R.string.createMilestone);
 		
 		dialog.show();
 		
@@ -242,8 +237,8 @@ public class DragNDropActivity extends Activity
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				DragNDropActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
-    	    	createItem();
+				TimelineActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
+    	    	createMilestone();
 		    	dialog.dismiss();
 			}
 		});
@@ -254,7 +249,7 @@ public class DragNDropActivity extends Activity
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Log.e("ButtonCancel", "sprintName");
-				DragNDropActivity.sprintName = null;
+				TimelineActivity.sprintName = null;
 				dialog.dismiss();
 			}
 		});
@@ -270,7 +265,7 @@ public class DragNDropActivity extends Activity
 		}
 	};
 	
-	public void saveMilestone()
+	public void saveMilestones()
 	{
 		for(int i = 0; i < inflatedMilestones.size(); i++)
 		{
@@ -319,7 +314,7 @@ public class DragNDropActivity extends Activity
 		
 		for(int monthIndex = 1; monthIndex <= months; monthIndex++)
 		{
-			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + monthIndex);
+			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex - 1) / 12));
 			beschriftungen.add(beschriftung);
 			
 			Log.e("Beschriftung " + monthIndex, beschriftung);
@@ -332,6 +327,7 @@ public class DragNDropActivity extends Activity
 			beschriftungView.setPadding(position, 0, 0, 0);
 			positionen.add(position);
 			beschriftungView.setText(beschriftung);
+			beschriftungView.setTextColor(Color.WHITE);
 		}
 	}
 
@@ -382,8 +378,8 @@ public class DragNDropActivity extends Activity
 			beschriftung.setText(sprintName);
 			
 			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
-			Log.e("LongClick", "Listener setzen");
-			itemView.setOnLongClickListener(editItem);
+
+			//itemView.setOnLongClickListener(editItem);
 			inflatedMilestones.add(item);
 		}
 		

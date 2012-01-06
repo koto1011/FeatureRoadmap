@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/basic"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
 <com.wpfandroid.presentation.OwnHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollview"
     android:layout_width="wrap_content"
@@ -26,7 +32,7 @@
         android:layout_width="2000px"
         android:layout_height="94dp"
         android:layout_gravity="top"
-        android:background="#ff0000" >
+        android:background="#000000" >
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,7 +40,7 @@
             android:layout_width="72dp"
             android:layout_height="88dp"
             android:layout_gravity="top"
-            android:background="#ff0000"
+            android:background="#000000"
             android:visibility="invisible" >
 
             <View
@@ -60,7 +66,7 @@
         android:layout_width="1000px"
         android:layout_height="20px"
         android:layout_weight="0.00"
-        android:background="#00ff00">
+        android:background="#0000aa">
     </RelativeLayout>
 
     <FrameLayout
@@ -68,7 +74,7 @@
         android:id="@+id/unten"
         android:layout_width="2000px"
         android:layout_height="94dp"
-        android:background="#ff0000" >
+        android:background="#000000" >
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -76,7 +82,7 @@
             android:layout_width="72dp"
             android:layout_height="88dp"
             android:layout_gravity="top"
-            android:background="#ff0000"
+            android:background="#000000"
             android:visibility="invisible" >
 
             <View
@@ -96,7 +102,8 @@
                 android:text="TextView" />
         </RelativeLayout>
     </FrameLayout>
-    
+</LinearLayout>
+</com.wpfandroid.presentation.OwnHorizontalScrollView>
     <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="318dp"
@@ -118,4 +125,3 @@
 
     </LinearLayout>
 </LinearLayout>
-</com.wpfandroid.presentation.OwnHorizontalScrollView>
