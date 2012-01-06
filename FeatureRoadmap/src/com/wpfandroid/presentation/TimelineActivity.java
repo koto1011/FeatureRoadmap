@@ -37,14 +37,13 @@ public class TimelineActivity extends Activity
 	public FrameLayout board;
 	public View pawn;
 	public View item;
-	public int countItemsCreated;
-	public static List<MilestoneItem> inflatedMilestones;
+	private List<MilestoneItem> inflatedMilestones;
 	public static MotionEvent event;
 	public static ViewGroup parentView;
 	public static View v;
 	public static int milestonePosX;
 	public static Dialog dialog;
-	public static String sprintName;
+	public static String milestoneName;
 	public Roadmap roadmap;
 	
 	private int beginDateMonth;
@@ -161,7 +160,7 @@ public class TimelineActivity extends Activity
     			milestonePosX = (int) event.getRawX();
     			Log.e("RawX im Listener", ""+(int)event.getRawX());
     			
-    			createItemDialog(false);
+    			createMilestoneDialog(false);
     			
     			return true;
     		}
@@ -179,7 +178,7 @@ public class TimelineActivity extends Activity
 			
 			if(v.getId() == R.id.timeline)
 			{
-				if(countItemsCreated % 2 == 0)
+				if(inflatedMilestones.size() % 2 == 0)
 				{
 					parentView = (ViewGroup) findViewById(R.id.oben);
 					parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
@@ -195,24 +194,16 @@ public class TimelineActivity extends Activity
 	
 	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 			int displayWidth = display.getWidth();
-	
-			TextView beschriftung = new TextView(getApplicationContext());
-			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
-			Log.e("RawX beim Erzeugen", "" + milestonePosX);
-			beschriftung.setPadding(milestonePosX - (106 / 2), 0, 0, 0);
-			beschriftung.setText(sprintName);
-			
+		
 			MilestoneItem milestone 
 				= new MilestoneItem(itemView, 
-						beschriftung, 
+						milestoneName,
 						(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), 
 						displayWidth);
 			//Log.e("LongClick", "Listener setzen");
 			
 			//itemView.setOnLongClickListener(editItem);
 			inflatedMilestones.add(milestone);
-		
-			countItemsCreated++;
     	}
     	else
     	{
@@ -222,7 +213,7 @@ public class TimelineActivity extends Activity
     }
     
     
-    public void createItemDialog(boolean updated)
+    public void createMilestoneDialog(boolean updated)
     {
     	dialog = new Dialog(TimelineActivity.this);
 		dialog.setContentView(R.layout.createmilestone);
@@ -237,7 +228,7 @@ public class TimelineActivity extends Activity
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				TimelineActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
+				TimelineActivity.milestoneName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
     	    	createMilestone();
 		    	dialog.dismiss();
 			}
@@ -249,7 +240,7 @@ public class TimelineActivity extends Activity
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Log.e("ButtonCancel", "sprintName");
-				TimelineActivity.sprintName = null;
+				TimelineActivity.milestoneName = null;
 				dialog.dismiss();
 			}
 		});
@@ -260,7 +251,7 @@ public class TimelineActivity extends Activity
 		
 		public boolean onLongClick(View v) {
 			Log.e("Long Clicked", "Long Clicked");
-			createItemDialog(true);
+			createMilestoneDialog(true);
 			return false;
 		}
 	};
@@ -341,7 +332,7 @@ public class TimelineActivity extends Activity
 			
 			final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-			if(countItemsCreated % 2 == 0)
+			if(inflatedMilestones.size() % 2 == 0)
 			{
 				parentView = (ViewGroup) findViewById(R.id.oben);
 				parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
@@ -357,9 +348,6 @@ public class TimelineActivity extends Activity
 	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 			int displayWidth = display.getWidth();
 	
-			TextView beschriftung = new TextView(getApplicationContext());
-			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftung);
-			
 			int milestoneMonth = Integer.parseInt(milestone.getDate().split("/")[1]);
 			Log.e("milestoneMonth", ""+ (milestoneMonth - 1));
 			
@@ -374,10 +362,7 @@ public class TimelineActivity extends Activity
 				}
 			}
 			
-			beschriftung.setPadding(positionen.get(targetIndex), 0, 0, 0);
-			beschriftung.setText(sprintName);
-			
-			MilestoneItem item = new MilestoneItem(itemView, beschriftung, (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
+			MilestoneItem item = new MilestoneItem(itemView, milestone.getName(), (OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), displayWidth);
 
 			//itemView.setOnLongClickListener(editItem);
 			inflatedMilestones.add(item);
