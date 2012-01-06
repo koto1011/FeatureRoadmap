@@ -38,7 +38,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.roadmaplist);
         
         dh = new DataHelper(this);
         
@@ -88,9 +88,7 @@ public class FeatureRoadmapActivity extends ListActivity {
 		milestoneUpdateTest = dh.getMilestoneById(1);
 		Log.d("EXPECTED", "Nach Update " + milestoneUpdateTest.toString());
 		dh.deleteAllMilestonesByRoadmapId(2);
-		
-		
-		
+			
 		List<String> roadmaps = dh.getAllRoadmapNames();
 		
 		for (String roadmap : roadmaps) {
