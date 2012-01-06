@@ -40,7 +40,7 @@ public class FeatureRoadmapActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        this.dh = new DataHelper(this);
+        dh = new DataHelper(this);
         
 
 //		Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
@@ -49,32 +49,32 @@ public class FeatureRoadmapActivity extends ListActivity {
         
         // Begin - sample data to fill database
         // When not necessary comment
-		this.dh.deleteAllMilestones();
-		this.dh.deleteAllRoadmaps();
+		dh.deleteAllMilestones();
+		dh.deleteAllRoadmaps();
 		
-		this.dh.createRoadmap("roadmapNameA", "2011/06/01", "2011/12/29", 1);
-		this.dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
-		this.dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
+		dh.createRoadmap("roadmapNameA", "2011/06/01", "2011/12/29", 1);
+		dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
+		dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
 
-		this.dh.createMilestone("milestoneName1a", "description1a", "2011/12/01",
+		dh.createMilestone("milestoneName1a", "description1a", "2011/12/01",
 				1);
-		this.dh.createMilestone("milestoneName1b", "description1b", "2011/12/11",
+		dh.createMilestone("milestoneName1b", "description1b", "2011/12/11",
 				1);
-		this.dh.createMilestone("milestoneName1c", "description1c", "2011/12/21",
+		dh.createMilestone("milestoneName1c", "description1c", "2011/12/21",
 				1);
 		
-		this.dh.createMilestone("milestoneName2a", "description2", "2011/12/02",
+		dh.createMilestone("milestoneName2a", "description2", "2011/12/02",
 				2);
-		this.dh.createMilestone("milestoneName2b", "description2", "2011/12/12",
+		dh.createMilestone("milestoneName2b", "description2", "2011/12/12",
 				2);
-		this.dh.createMilestone("milestoneName2c", "description2", "2011/12/22",
+		dh.createMilestone("milestoneName2c", "description2", "2011/12/22",
 				2);
 		
-		this.dh.createMilestone("milestoneName3a", "description3", "2011/12/03",
+		dh.createMilestone("milestoneName3a", "description3", "2011/12/03",
 				3);
-		this.dh.createMilestone("milestoneName3b", "description3", "2011/12/13",
+		dh.createMilestone("milestoneName3b", "description3", "2011/12/13",
 				3);
-		this.dh.createMilestone("milestoneName3c", "description3", "2011/12/23",
+		dh.createMilestone("milestoneName3c", "description3", "2011/12/23",
 				3);
 		// End - sample data to fill database
 		
@@ -84,13 +84,14 @@ public class FeatureRoadmapActivity extends ListActivity {
 		Log.d("EXPECTED", "Nach Select " + milestoneUpdateTest.toString());
 		milestoneUpdateTest.setDescription("TEST");
 		Log.d("EXPECTED", "Nach Zuweiseung " + milestoneUpdateTest.toString());
-		this.dh.updateMilestone(milestoneUpdateTest);			
-		milestoneUpdateTest = this.dh.getMilestoneById(1);
+		dh.updateMilestone(milestoneUpdateTest);			
+		milestoneUpdateTest = dh.getMilestoneById(1);
 		Log.d("EXPECTED", "Nach Update " + milestoneUpdateTest.toString());
+		dh.deleteAllMilestonesByRoadmapId(2);
 		
 		
 		
-		List<String> roadmaps = this.dh.getAllRoadmapNames();
+		List<String> roadmaps = dh.getAllRoadmapNames();
 		
 		for (String roadmap : roadmaps) {
 			Log.d("EXPECTED", "Begin loop - Filling ArrayList of ROADMAPNAMES");
@@ -133,7 +134,6 @@ public class FeatureRoadmapActivity extends ListActivity {
         if(newButton != null)
         {
         	newButton.setOnClickListener(new View.OnClickListener() {
-	            @SuppressWarnings("unchecked")
 				public void onClick(View view) {
 	            	createRoadmapDialog();         		
 	            }
@@ -187,7 +187,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     	
     	// Roadmaps neu aus der DB laden und ListView damit befüllen
 
-		List<String> roadmaps = this.dh.getAllRoadmapNames();
+		List<String> roadmaps = dh.getAllRoadmapNames();
 		
 		ROADMAPNAMES.clear();
 		

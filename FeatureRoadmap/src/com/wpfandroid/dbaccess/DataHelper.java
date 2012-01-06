@@ -307,6 +307,14 @@ public class DataHelper implements Serializable {
 		return milestones;
 	}
 
+	public void deleteAllMilestonesByRoadmapId(int roadmapId) {
+		Log.d("DEBUG", "deleteAllMilestonesByRoadmapId - Begin");
+		
+		db.delete(TABLE_NAME_MILESTONE, "roadmap_id = " + roadmapId, null);
+
+		Log.d("DEBUG", "deleteAllMilestonesByRoadmapId - End");
+	}
+	
 	public void closeDB() {
 		this.db.close();
 	}
