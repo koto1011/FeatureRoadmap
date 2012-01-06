@@ -182,25 +182,23 @@ public class TimelineActivity extends Activity
     };
 
     
-    public void createMilestone()
+    public void createMilestone(String milestoneName, int posX)
     {
     	if(updated == false)
     	{
 	    	final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			
-			if(v.getId() == R.id.timeline)
+			if(inflatedMilestones.size() % 2 == 0)
 			{
-				if(inflatedMilestones.size() % 2 == 0)
-				{
-					parentView = (ViewGroup) findViewById(R.id.oben);
-					parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
-				}
-				else
-				{
-					parentView = (ViewGroup) findViewById(R.id.unten);
-					parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
-				}
+				parentView = (ViewGroup) findViewById(R.id.oben);
+				parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
 			}
+			else
+			{
+				parentView = (ViewGroup) findViewById(R.id.unten);
+				parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
+			}
+			
 			
 	    	View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
 	
@@ -211,18 +209,13 @@ public class TimelineActivity extends Activity
 				= new MilestoneItem(itemView, 
 						milestoneName,
 						(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(), 
-						TimelineActivity.milestonePosX,
+						posX,
 						displayWidth);
 			//Log.e("LongClick", "Listener setzen");
 			
 			//itemView.setOnLongClickListener(editItem);
 			inflatedMilestones.add(milestone);
     	}
-    	else
-    	{
-    		// DB-Update
-    	}
-
     }
     
     
@@ -242,7 +235,9 @@ public class TimelineActivity extends Activity
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				TimelineActivity.milestoneName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
-    	    	createMilestone();
+    	    	createMilestone(
+    	    			(String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString(),
+    	    			TimelineActivity.milestonePosX);
 		    	dialog.dismiss();
 			}
 		});
@@ -346,25 +341,7 @@ public class TimelineActivity extends Activity
 		for(int i = 0; i < milestones.size(); i++)
 		{
 			Milestone milestone = milestones.get(i);
-			
-			final LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-			if(inflatedMilestones.size() % 2 == 0)
-			{
-				parentView = (ViewGroup) findViewById(R.id.oben);
-				parentView = (ViewGroup) inflater.inflate(R.layout.item, parentView);
-			}
-			else
-			{
-				parentView = (ViewGroup) findViewById(R.id.unten);
-				parentView = (ViewGroup) inflater.inflate(R.layout.item_unten, parentView);
-			}
-
-			View itemView = parentView.getChildAt(parentView.getChildCount() - 1);
-	
-	        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-			int displayWidth = display.getWidth();
-	
 			int milestoneMonth = Integer.parseInt(milestone.getDate().split("/")[1]);
 			Log.e("milestoneMonth", ""+ (milestoneMonth - 1));
 			
@@ -380,16 +357,8 @@ public class TimelineActivity extends Activity
 				}
 			}
 			
-			MilestoneItem item 
-				= new MilestoneItem(itemView, 
-									milestone.getName(), 
-									(OwnHorizontalScrollView) ((LinearLayout) findViewById(R.id.roadmap)).getParent(),
-									positionen.get(targetIndex),
-									displayWidth);
+			createMilestone(milestone.getName(), positionen.get(targetIndex));
 
-			//itemView.setOnLongClickListener(editItem);
-			inflatedMilestones.add(item);
-			
 			Log.e("Milestone inflated beim Laden: ", milestone.getName() + "..." + milestone.getDate());
 		}
 		
