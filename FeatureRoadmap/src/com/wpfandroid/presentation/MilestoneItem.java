@@ -16,23 +16,19 @@ import android.widget.TextView;
 
 public class MilestoneItem extends Milestone
 {
-
 	private View itemView;
 	private OwnHorizontalScrollView scrollView;
 	private int displayWidth;
-	private TextView beschriftung;
+	private TextView beschriftungView;
 	
-	
-	public MilestoneItem(View itemView, TextView beschriftung, OwnHorizontalScrollView scrollView, int displayWidth) 
+	public MilestoneItem(View itemView, String milestoneName, OwnHorizontalScrollView scrollView, int displayWidth) 
 	{
 		this.itemView = itemView;
-		this.beschriftung = beschriftung;
+		this.beschriftungView = (TextView) ((ViewGroup) itemView).getChildAt(((ViewGroup) itemView).getChildCount() - 1);
 		this.displayWidth = displayWidth;
 		this.scrollView = scrollView; 
-			
-		//FeatureRoadmapActivity.this.dh.createMilestone(beschriftung.getText(), null, null, 0);
 		
-		beschriftung.setPadding(scrollView.getScrollX() + TimelineActivity.milestonePosX - (106 / 2), 0, 0, 0);
+		beschriftungView.setText(milestoneName);
 		
 		// position the new item at the clicked position
 		FrameLayout.LayoutParams par = (LayoutParams) itemView.getLayoutParams();
@@ -47,7 +43,7 @@ public class MilestoneItem extends Milestone
 
 	public String getName()
 	{
-		return beschriftung.getText().toString();
+		return beschriftungView.getText().toString();
 	}
 	
 	public int getPos()
@@ -85,7 +81,6 @@ public class MilestoneItem extends Milestone
 		                    }
 		                    
 							v.setLayoutParams(par);		
-							verschiebeBeschriftung();
 							
 							break;
 						}//inner case MOVE
@@ -96,8 +91,7 @@ public class MilestoneItem extends Milestone
 							Log.e("onTouch: ", "case: item - UP, RawX: "+(int)event.getRawX());
 		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
-							verschiebeBeschriftung();
-							
+													
 							scrollView.setIsScrollable(true);	
 							
 							Log.e("LeftMargin: ", ""+v.getLeft());
@@ -109,8 +103,7 @@ public class MilestoneItem extends Milestone
 							Log.e("onTouch: ", "case: item - CANCEL, RawX: "+(int)event.getRawX());
 		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
-							verschiebeBeschriftung();
-							
+													
 							scrollView.setIsScrollable(false);	
 							
 							Log.e("LeftMargin: ", ""+v.getLeft());
@@ -124,7 +117,7 @@ public class MilestoneItem extends Milestone
 						    scrollView.setIsScrollable(false);
 		
 						    v.setLayoutParams(par);
-							verschiebeBeschriftung();
+							
 							break;
 						}//inner case UP
 					}//inner switch
@@ -133,15 +126,4 @@ public class MilestoneItem extends Milestone
 		}//onTouch
     };//dragItem
 
- 
-    private void verschiebeBeschriftung()
-    {
-    	FrameLayout.LayoutParams par = (LayoutParams) this.itemView.getLayoutParams();
-    	beschriftung.setPadding(par.leftMargin, par.topMargin, par.rightMargin, par.bottomMargin);
-    	beschriftung.invalidate();
-    	
-    	((TextView) itemView.findViewById(R.id.milestoneText)).setText(beschriftung.getText());
-    	((TextView) itemView.findViewById(R.id.milestoneText)).invalidate();
-    }
-    
 }
