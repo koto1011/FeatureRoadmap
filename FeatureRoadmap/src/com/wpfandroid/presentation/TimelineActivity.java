@@ -288,7 +288,7 @@ public class TimelineActivity extends Activity
 			}
 			
 			String text = beschriftungen.get(posIndexBest);
-			Log.e("Ausgewählte Beschriftung: ", text);
+			//Log.e("Ausgewählte Beschriftung: ", text);
 			String monthText = text.split("[0-9]")[0];
 			String year = text.replace(monthText, "");
 			
@@ -320,8 +320,8 @@ public class TimelineActivity extends Activity
 			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex - 1) / 12));
 			beschriftungen.add(beschriftung);
 			
-			Log.e("Beschriftung " + monthIndex, beschriftung);
-			Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1));
+			//Log.e("Beschriftung " + monthIndex, beschriftung);
+			//Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1));
 			
 			TextView beschriftungView = new TextView(getApplicationContext());
 			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
