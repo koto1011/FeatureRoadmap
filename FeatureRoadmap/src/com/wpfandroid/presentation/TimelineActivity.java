@@ -324,8 +324,8 @@ public class TimelineActivity extends Activity
 			beschriftung = monate[(beginDateMonth + monthIndex) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex) / 12));
 			beschriftungen.add(beschriftung);
 			
-			//Log.e("Beschriftung " + monthIndex, beschriftung);
-			//Log.e("Position ", "" + roadmapWidth / months * (monthIndex - 1));
+			Log.e("Beschriftung " + monthIndex, beschriftung);
+			Log.e("Position ", "" + roadmapWidth / months * (monthIndex));
 			
 			TextView beschriftungView = new TextView(getApplicationContext());
 			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
@@ -347,10 +347,10 @@ public class TimelineActivity extends Activity
 			Milestone milestone = milestones.get(i);
 
 			int milestoneMonth = Integer.parseInt(milestone.getDate().split("/")[1]);
-			Log.e("milestoneMonth", ""+ (milestoneMonth - 1));
+			Log.e("milestoneMonth", ""+ (milestoneMonth));
 			
 			String yearText = milestone.getDate().split("/")[0];
-			String monthText = monate[milestoneMonth - 1];
+			String monthText = monate[milestoneMonth];
 			
 			int targetIndex = -1;
 			for(int j = 0; j < beschriftungen.size(); j++)
@@ -363,7 +363,7 @@ public class TimelineActivity extends Activity
 			
 			createMilestone(milestone.getName(), positionen.get(targetIndex));
 
-			Log.e("Milestone inflated beim Laden: ", milestone.getName() + "..." + milestone.getDate());
+			Log.e("Milestone inflated beim Laden: ", milestone.getName() + "..." + milestone.getDate() + "...Index: " + targetIndex + "...zugehörige Pos: " + positionen.get(targetIndex));
 		}		
 	}
 }
