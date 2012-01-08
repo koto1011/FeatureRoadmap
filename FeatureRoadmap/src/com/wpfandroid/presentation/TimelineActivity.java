@@ -117,7 +117,6 @@ public class TimelineActivity extends Activity
     			TimelineActivity.v = v;
     			
     			milestonePosX = (int) event.getRawX();
-    			Log.e("RawX im Listener", ""+(int)event.getRawX());
     			
     			createMilestoneDialog(false);
     			
@@ -320,9 +319,9 @@ public class TimelineActivity extends Activity
 		
 		String beschriftung = "";
 		
-		for(int monthIndex = 1; monthIndex <= months; monthIndex++)
+		for(int monthIndex = 0; monthIndex < months; monthIndex++)
 		{
-			beschriftung = monate[(beginDateMonth + monthIndex - 1) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex - 1) / 12));
+			beschriftung = monate[(beginDateMonth + monthIndex) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex) / 12));
 			beschriftungen.add(beschriftung);
 			
 			//Log.e("Beschriftung " + monthIndex, beschriftung);
@@ -331,7 +330,7 @@ public class TimelineActivity extends Activity
 			TextView beschriftungView = new TextView(getApplicationContext());
 			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
 			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftungView);
-			int position = roadmapWidth / months * (monthIndex - 1);
+			int position = roadmapWidth / months * (monthIndex);
 			beschriftungView.setPadding(position, 0, 0, 0);
 			positionen.add(position);
 			beschriftungView.setText(beschriftung);
