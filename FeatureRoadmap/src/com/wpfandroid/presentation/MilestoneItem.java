@@ -52,7 +52,6 @@ public class MilestoneItem extends Milestone
     {
 		public boolean onTouch(View v, MotionEvent event) 
 		{
-			Log.e("onTouch: ", "erreicht");
 			FrameLayout.LayoutParams par = (LayoutParams) v.getLayoutParams();
 			
 			if(v.getId() != R.id.oben && v.getId() != R.id.unten)
@@ -65,13 +64,11 @@ public class MilestoneItem extends Milestone
 
 		                    if((int) event.getRawX() > displayWidth * 0.85)
 		                    {
-		                    	Log.e("Scroll mich!", "5px rechts");
-		                    	scrollView.smoothScrollBy(20, 0);
+		                    	scrollView.smoothScrollBy(20, 0);                   
 		                    }
 		                    
 		                    if((int) event.getRawX() < displayWidth * 0.15)
 		                    {
-		                    	Log.e("Scroll mich!", "5px rechts");
 		                    	scrollView.smoothScrollBy(-20, 0);
 		                    }
 		                    
@@ -81,7 +78,6 @@ public class MilestoneItem extends Milestone
 						}//inner case MOVE
 						case MotionEvent.ACTION_UP:
 						{
-
 		                    par.leftMargin = scrollView.getScrollX() + (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
 													
@@ -91,17 +87,12 @@ public class MilestoneItem extends Milestone
 						}//inner case UP
 						case MotionEvent.ACTION_CANCEL:
 						{
-							Log.e("onTouch: ", "case: item - CANCEL");
-							Log.e("onTouch: ", "case: item - CANCEL, RawX: "+(int)event.getRawX());
 		                    par.leftMargin = (int)event.getRawX() - (v.getWidth()/2);
 							v.setLayoutParams(par);
 													
 							scrollView.setIsScrollable(false);	
-							
-							Log.e("LeftMargin: ", ""+v.getLeft());
 							break;
 						}//inner case UP
-
 						case MotionEvent.ACTION_DOWN:
 						{
 						    scrollView.setIsScrollable(false);
