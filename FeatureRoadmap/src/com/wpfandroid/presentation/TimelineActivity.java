@@ -12,12 +12,15 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.FontMetrics;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.view.View.OnLongClickListener;
 import android.view.WindowManager;
 import android.view.View.OnTouchListener;
@@ -51,7 +54,7 @@ public class TimelineActivity extends Activity
 	private int endDateMonth;
 	private int endDateYear;
 	private int months;
-	private int roadmapWidth;
+	private int timelineWidth;
 	
 	private List<String> beschriftungen = null;
 	private List<Integer> positionen = null; 
@@ -280,19 +283,19 @@ public class TimelineActivity extends Activity
         timeline.setOnTouchListener(touchTimeline);
         
         //Test:
-        roadmapWidth = (int) Math.round(months * 72 * 2);
+        timelineWidth = (int) Math.round(months * 72 * 2);
         
         Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
         int height = 100;
-        Log.e("width: ", ""+roadmapWidth);
+        Log.e("width: ", ""+timelineWidth);
         
-        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, 30)); // width and height
+        timeline.setLayoutParams(new LinearLayout.LayoutParams(timelineWidth, 30)); // width and height
                 
         FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
-        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        oben.setLayoutParams(new LinearLayout.LayoutParams(timelineWidth,height)); // width and height
         
         FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
-        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        unten.setLayoutParams(new LinearLayout.LayoutParams(timelineWidth,height)); // width and height
             	
         createTimelineInscription();
 	}
@@ -325,13 +328,20 @@ public class TimelineActivity extends Activity
 			beschriftungen.add(beschriftung);
 			
 			Log.e("Beschriftung " + monthIndex, beschriftung);
-			Log.e("Position ", "" + roadmapWidth / months * (monthIndex));
+			Log.e("Position ", "" + timelineWidth / months * (monthIndex));
 			
 			TextView beschriftungView = new TextView(getApplicationContext());
 			beschriftungView.setLayoutParams(new LayoutParams(android.widget.RelativeLayout.LayoutParams.FILL_PARENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT));
 			((RelativeLayout) findViewById(R.id.timeline)).addView(beschriftungView);
-			int position = roadmapWidth / months * (monthIndex);
-			beschriftungView.setPadding(position, 0, 0, 0);
+			
+			// Mittig in der zugehörigen Zelle
+			int position = timelineWidth / months * (monthIndex) 
+					+ (timelineWidth / months / 2);
+			
+			float textWidthPx = (new Paint()).measureText(beschriftung);
+			Log.e("textWidthPx: ", ""+textWidthPx);
+			
+			beschriftungView.setPadding(position - (int) Math.round(textWidthPx / 2), 0, 0, 0);
 			positionen.add(position);
 			beschriftungView.setText(beschriftung);
 			beschriftungView.setTextColor(Color.WHITE);
