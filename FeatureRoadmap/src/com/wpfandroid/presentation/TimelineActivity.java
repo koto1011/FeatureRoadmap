@@ -95,61 +95,8 @@ public class TimelineActivity extends Activity
         Log.e("Roadmap-Obj", ""+getIntent().getSerializableExtra("loadedRoadmap"));
         
         roadmap = (Roadmap) getIntent().getSerializableExtra("loadedRoadmap");
-            
-        beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[1]);
-        beginDateYear = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
-        
-        endDateMonth = Integer.parseInt(roadmap.getEndDate().split("/")[1]);
-        endDateYear = Integer.parseInt(roadmap.getEndDate().split("/")[0]);
-        
-        months = 0;
-        
-        if(beginDateYear == endDateYear)
-        {
-        	months = endDateMonth - beginDateMonth;
-        }
-        else
-        {
-        	months = endDateMonth - beginDateMonth;
-        	months = months + (endDateYear - beginDateYear) * 12;
-        }
-        
-        Log.e("months: ", ""+months);
-        
-        // size the view according to the time period of the timeline of the roadmap
-        RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
-        timeline.setOnTouchListener(touchTimeline);
-        
-        //Test:
-        roadmapWidth = (int) Math.round(months * 72 * 2);
-        
-        Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
-        int height = 100;
-        Log.e("width: ", ""+roadmapWidth);
-        
-        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, 30)); // width and height
-                
-        FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
-        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
-        
-        FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
-        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
-        
-        // Monatsnamen initialisieren
-    	monate[0] = getResources().getString(R.string.monat0);
-    	monate[1] = getResources().getString(R.string.monat1);
-    	monate[2] = getResources().getString(R.string.monat2);
-    	monate[3] = getResources().getString(R.string.monat3);
-    	monate[4] = getResources().getString(R.string.monat4);
-    	monate[5] = getResources().getString(R.string.monat5);
-    	monate[6] = getResources().getString(R.string.monat6);
-    	monate[7] = getResources().getString(R.string.monat7);
-    	monate[8] = getResources().getString(R.string.monat8);
-    	monate[9] = getResources().getString(R.string.monat9);
-    	monate[10] = getResources().getString(R.string.monat10);
-    	monate[11] = getResources().getString(R.string.monat11);
-    	
-        createTimelineInscription();
+            	
+        createTimeline();
         inflateMilestones();
        
     }//onCreate
@@ -307,9 +254,67 @@ public class TimelineActivity extends Activity
 		}
 	}
 	
+	private void createTimeline()
+	{
+		beginDateMonth = Integer.parseInt(roadmap.getStartDate().split("/")[1]);
+        beginDateYear = Integer.parseInt(roadmap.getStartDate().split("/")[0]);
+        
+        endDateMonth = Integer.parseInt(roadmap.getEndDate().split("/")[1]);
+        endDateYear = Integer.parseInt(roadmap.getEndDate().split("/")[0]);
+        
+        months = 0;
+        
+        if(beginDateYear == endDateYear)
+        {
+        	months = endDateMonth - beginDateMonth + 1;
+        }
+        else
+        {
+        	months = endDateMonth - beginDateMonth + 1;
+        	months = months + (endDateYear - beginDateYear) * 12;
+        }
+        
+        Log.e("months: ", ""+months);
+        
+        // size the view according to the time period of the timeline of the roadmap
+        RelativeLayout timeline = (RelativeLayout) findViewById(R.id.timeline);
+        timeline.setOnTouchListener(touchTimeline);
+        
+        //Test:
+        roadmapWidth = (int) Math.round(months * 72 * 2);
+        
+        Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
+        int height = 100;
+        Log.e("width: ", ""+roadmapWidth);
+        
+        timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, 30)); // width and height
+                
+        FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
+        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        
+        FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
+        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+            	
+        createTimelineInscription();
+	}
+	
+	
 	private void createTimelineInscription()
 	{
-	
+        // Monatsnamen initialisieren
+    	monate[0] = getResources().getString(R.string.monat0);
+    	monate[1] = getResources().getString(R.string.monat1);
+    	monate[2] = getResources().getString(R.string.monat2);
+    	monate[3] = getResources().getString(R.string.monat3);
+    	monate[4] = getResources().getString(R.string.monat4);
+    	monate[5] = getResources().getString(R.string.monat5);
+    	monate[6] = getResources().getString(R.string.monat6);
+    	monate[7] = getResources().getString(R.string.monat7);
+    	monate[8] = getResources().getString(R.string.monat8);
+    	monate[9] = getResources().getString(R.string.monat9);
+    	monate[10] = getResources().getString(R.string.monat10);
+    	monate[11] = getResources().getString(R.string.monat11);
+    	
 		beschriftungen = new ArrayList<String>();
 		positionen = new ArrayList<Integer>();
 		
@@ -360,8 +365,7 @@ public class TimelineActivity extends Activity
 			createMilestone(milestone.getName(), positionen.get(targetIndex));
 
 			Log.e("Milestone inflated beim Laden: ", milestone.getName() + "..." + milestone.getDate());
-		}
-		
+		}		
 	}
 }
     
