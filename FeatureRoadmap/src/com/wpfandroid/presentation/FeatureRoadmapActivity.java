@@ -23,6 +23,7 @@ import com.wpfandroid.pojo.Roadmap;
 public class FeatureRoadmapActivity extends ListActivity {
 	
 	public static String CURRENTLY_SELECTED = null;
+	public static ArrayList<String> ROADMAPNAMES = new ArrayList<String>();
 	public static ArrayList<String> ROADMAPNAMES = null;
 	public static Dialog dialog;
 	public static String roadmapName;
@@ -38,7 +39,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.roadmaplist);
+        setContentView(R.layout.main);
         
         dh = new DataHelper(this);
 			
@@ -108,12 +109,32 @@ public class FeatureRoadmapActivity extends ListActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				FeatureRoadmapActivity.roadmapName = (String) ((EditText) dialog.findViewById(R.id.roadmapName)).getText().toString();
-				FeatureRoadmapActivity.beginDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth())
+				
+				// führende Null
+				String month;
+				if(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth() < 10)
+					month = "0" + Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth());
+				else
+					month = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getMonth());
+				
+				FeatureRoadmapActivity.beginDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getYear())
 						+ "/"
-						+ Integer.toString(((DatePicker) dialog.findViewById(R.id.beginDate)).getYear());
-				FeatureRoadmapActivity.endDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth())
+						+ month
+						+ "/01";
+				
+				// führende Null
+				if(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth() < 10)
+					month = "0" + Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth());
+				else
+					month = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getMonth());
+				
+				FeatureRoadmapActivity.endDate = Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getYear())
 						+ "/"
-						+ Integer.toString(((DatePicker) dialog.findViewById(R.id.endDate)).getYear());
+						+ month
+						+ "/01";
+				
+				Log.e("beginDate: ", beginDate);
+				Log.e("endDate: ", endDate);
 				
     	    	createRoadmap();
 		    	dialog.dismiss();
