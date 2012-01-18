@@ -126,16 +126,16 @@ public class TimelineActivity extends Activity
         roadmapWidth = (int) Math.round(months * 72 * 1.5);
         
         Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
-        int height = 100;
+        int height = -1;
         Log.e("width: ", ""+roadmapWidth);
         
         timeline.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, 30)); // width and height
                 
         FrameLayout oben = (FrameLayout) findViewById(R.id.oben);
-        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        oben.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, height)); // width and height
         
         FrameLayout unten = (FrameLayout) findViewById(R.id.unten);
-        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth,height)); // width and height
+        unten.setLayoutParams(new LinearLayout.LayoutParams(roadmapWidth, height)); // width and height
         
         createTimelineInscription();
         inflateMilestones();
