@@ -41,6 +41,10 @@ public class DataHelper implements Serializable {
 	private static final String INSERT_MILESTONE = "insert into "
 			+ TABLE_NAME_MILESTONE
 			+ "(name, description, date, roadmap_id) values (?, ?, ?, ?)";
+	
+	public static final String ROADMAP_TABLE_CREATE = "(id INTEGER PRIMARY KEY, name TEXT UNIQUE, start_date TEXT, end_date TEXT, project_id INTEGER)";
+	
+	public static final String MILESTONE_TABLE_CREATE = "(id INTEGER PRIMARY KEY, name TEXT, description TEXT, date TEXT, roadmap_id INTEGER)";
 
 	public DataHelper(Context context) {
 		this.context = context;
@@ -329,10 +333,112 @@ public class DataHelper implements Serializable {
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE "
 					+ TABLE_NAME_ROADMAP
-					+ "(id INTEGER PRIMARY KEY, name TEXT UNIQUE, start_date TEXT, end_date TEXT, project_id INTEGER)");
+					+ ROADMAP_TABLE_CREATE);
 			db.execSQL("CREATE TABLE "
 					+ TABLE_NAME_MILESTONE
-					+ "(id INTEGER PRIMARY KEY, name TEXT UNIQUE, description TEXT, date TEXT, roadmap_id INTEGER)");
+					+ MILESTONE_TABLE_CREATE);
+						
+			// Test data roadmaps
+			db.execSQL("INSERT INTO " + TABLE_NAME_ROADMAP + "(name, start_date, end_date, project_id) VALUES (" + 
+					"'Scrum-App - Feature Roadmap', " + 
+					"'2011/10/14', " +
+					"'2012/01/20', " +
+					"1);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_ROADMAP + "(name, start_date, end_date, project_id) VALUES (" + 
+					"'Google++ Timeline', " + 
+					"'2012/01/21', " +
+					"'2012/07/22', " +
+					"2);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_ROADMAP + "(name, start_date, end_date, project_id) VALUES (" + 
+					"'Scrum-App - Zusammführung', " + 
+					"'2012/03/23', " +
+					"'2011/06/22', " +
+					"3);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_ROADMAP + "(name, start_date, end_date, project_id) VALUES (" + 
+					"'WI-App', " + 
+					"'2011/11/15', " +
+					"'2012/03/14', " +
+					"4);");
+
+			// Test data milestones of roadmap 1
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Konzept', " + 
+					"'Mockups, Use Cases, usw.', " +
+					"'2011/10/28', " +
+					"1);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Erste Implementierungen', " + 
+					"'Roadmap-Liste, DB-Access', " +
+					"'2011/11/10', " +
+					"1);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Roadmap Timeline', " + 
+					"'inkl. Dynamische Elemente', " +
+					"'2011/12/31', " +
+					"1);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Abgabe', " + 
+					"'Testen, Präsentation, Abgabe', " +
+					"'2012/01/20', " +
+					"1);");
+
+			// Test data milestones of roadmap 2
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Anforderungsanalyse', " + 
+					"'Treffen mit Gesamtteam', " +
+					"'2012/01/31', " +
+					"2);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Konzept', " + 
+					"'Architektur, Use Cases, Workflows, usw.', " +
+					"'2012/02/15', " +
+					"2);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Implementierung', " + 
+					"null, " +
+					"'2012/05/03', " +
+					"2);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Rollout', " + 
+					"'Testen, Präsentation, Abgabe', " +
+					"'2012/07/01,', " +
+					"2);");
+			
+			// No test data milestones of roadmap 3 - Empty roadmap timeline
+			
+			// Test data milestones of roadmap 4
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Anforderungsanalyse', " + 
+					"'Treffen mit Verantwortlichen des Fachbereichs', " +
+					"'2011/11/01', " +
+					"4);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Konzept', " + 
+					"'Architektur, Use Cases, Workflows, usw.', " +
+					"'2011/11/15', " +
+					"4);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Implementierung', " + 
+					"'Treffen mit Team, Planung der Realisierung, Definition der Tasks', " +
+					"'2012/02/01', " +
+					"4);");
+			
+			db.execSQL("INSERT INTO " + TABLE_NAME_MILESTONE + "(name, description, date, roadmap_id) VALUES (" + 
+					"'Rollout', " + 
+					"'Testen, Präsentation, Abgabe', " +
+					"'2012/03/31,', " +
+					"4);");
 		}
 
 		@Override

@@ -23,7 +23,7 @@ import com.wpfandroid.pojo.Roadmap;
 public class FeatureRoadmapActivity extends ListActivity {
 	
 	public static String CURRENTLY_SELECTED = null;
-	public static ArrayList<String> ROADMAPNAMES = new ArrayList<String>();
+	public static ArrayList<String> ROADMAPNAMES = null;
 	public static Dialog dialog;
 	public static String roadmapName;
 	public static String beginDate;
@@ -41,56 +41,10 @@ public class FeatureRoadmapActivity extends ListActivity {
         setContentView(R.layout.roadmaplist);
         
         dh = new DataHelper(this);
-        
-
-//		Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
-//		Log.d("EXPECTED", "Nach Neustart " + milestoneUpdateTest.toString());
-
-        
-        // Begin - sample data to fill database
-        // When not necessary comment
-		dh.deleteAllMilestones();
-		dh.deleteAllRoadmaps();
-		
-		dh.createRoadmap("roadmapNameA", "2011/06/01", "2011/12/29", 1);
-		dh.createRoadmap("roadmapNameB", "2011/11/02", "2011/12/30", 1);
-		dh.createRoadmap("roadmapNameC", "2011/11/03", "2011/12/31", 1);
-
-		dh.createMilestone("milestoneName1a", "description1a", "2011/12/01",
-				1);
-		dh.createMilestone("milestoneName1b", "description1b", "2011/12/11",
-				1);
-		dh.createMilestone("milestoneName1c", "description1c", "2011/12/21",
-				1);
-		
-		dh.createMilestone("milestoneName2a", "description2", "2011/12/02",
-				2);
-		dh.createMilestone("milestoneName2b", "description2", "2011/12/12",
-				2);
-		dh.createMilestone("milestoneName2c", "description2", "2011/12/22",
-				2);
-		
-		dh.createMilestone("milestoneName3a", "description3", "2011/12/03",
-				3);
-		dh.createMilestone("milestoneName3b", "description3", "2011/12/13",
-				3);
-		dh.createMilestone("milestoneName3c", "description3", "2011/12/23",
-				3);
-		// End - sample data to fill database
-		
-		// Test Milestone update
-		Log.d("EXPECTED", "Begin update test");
-		Milestone milestoneUpdateTest = this.dh.getMilestoneById(1);
-		Log.d("EXPECTED", "Nach Select " + milestoneUpdateTest.toString());
-		milestoneUpdateTest.setDescription("TEST");
-		Log.d("EXPECTED", "Nach Zuweiseung " + milestoneUpdateTest.toString());
-		dh.updateMilestone(milestoneUpdateTest);			
-		milestoneUpdateTest = dh.getMilestoneById(1);
-		Log.d("EXPECTED", "Nach Update " + milestoneUpdateTest.toString());
-		dh.deleteAllMilestonesByRoadmapId(2);
 			
 		List<String> roadmaps = dh.getAllRoadmapNames();
 		
+		ROADMAPNAMES = new ArrayList<String>();
 		for (String roadmap : roadmaps) {
 			Log.d("EXPECTED", "Begin loop - Filling ArrayList of ROADMAPNAMES");
 			ROADMAPNAMES.add(roadmap);
