@@ -8,8 +8,8 @@
     <com.wpfandroid.presentation.OwnHorizontalScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:fadeScrollbars="false"
         android:orientation="vertical"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
@@ -20,8 +20,8 @@
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/roadmap"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fadeScrollbars="false"
             android:orientation="vertical"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
@@ -32,15 +32,15 @@
             <FrameLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/oben"
-                android:layout_width="2000px"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:background="#000000" >
 
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/item"
-                    android:layout_width="72dp"
+                    android:layout_width="match_parent"
                     android:layout_height="88dp"
                     android:layout_gravity="top"
                     android:background="#000000"
@@ -66,7 +66,7 @@
 
             <RelativeLayout
                 android:id="@+id/timeline"
-                android:layout_width="1000px"
+                android:layout_width="match_parent"
                 android:layout_height="20px"
                 android:gravity="center"
                 android:background="#0000aa" >
@@ -75,14 +75,14 @@
             <FrameLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/unten"
-                android:layout_width="2000px"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#000000" >
 
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/item"
-                    android:layout_width="72dp"
+                    android:layout_width="match_parent"
                     android:layout_height="88dp"
                     android:layout_gravity="bottom"
                     android:background="#000000"

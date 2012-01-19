@@ -23,7 +23,6 @@ import com.wpfandroid.pojo.Roadmap;
 public class FeatureRoadmapActivity extends ListActivity {
 	
 	public static String CURRENTLY_SELECTED = null;
-	public static ArrayList<String> ROADMAPNAMES = new ArrayList<String>();
 	public static ArrayList<String> ROADMAPNAMES = null;
 	public static Dialog dialog;
 	public static String roadmapName;
@@ -39,7 +38,7 @@ public class FeatureRoadmapActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.roadmaplist);
         
         dh = new DataHelper(this);
 			

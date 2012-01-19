@@ -324,7 +324,7 @@ public class TimelineActivity extends Activity
 		
 		for(int monthIndex = 0; monthIndex < months; monthIndex++)
 		{
-			beschriftung = monate[(beginDateMonth + monthIndex) % 12] + (beginDateYear + (int) Math.floor((beginDateMonth + monthIndex) / 12));
+			beschriftung = monate[(((beginDateMonth + monthIndex)-1) % 12)] + " " + (beginDateYear + (int) Math.floor(((beginDateMonth + monthIndex)-1) / 12));
 			beschriftungen.add(beschriftung);
 			
 			Log.e("Beschriftung " + monthIndex, beschriftung);
@@ -360,12 +360,12 @@ public class TimelineActivity extends Activity
 			Log.e("milestoneMonth", ""+ (milestoneMonth));
 			
 			String yearText = milestone.getDate().split("/")[0];
-			String monthText = monate[milestoneMonth];
+			String monthText = monate[(milestoneMonth-1)];
 			
 			int targetIndex = -1;
 			for(int j = 0; j < beschriftungen.size(); j++)
 			{
-				if(beschriftungen.get(j).equals(monthText+yearText))
+				if(beschriftungen.get(j).equals(monthText + " " +  yearText))
 				{
 					targetIndex = j;
 				}
