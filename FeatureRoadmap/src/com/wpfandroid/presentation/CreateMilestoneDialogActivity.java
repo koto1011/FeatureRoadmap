@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class createSprintDialogActivity extends Activity{
+public class CreateMilestoneDialogActivity extends Activity{
 	static String sprintName;
 	static Dialog dialog;
 	
@@ -20,7 +20,7 @@ public class createSprintDialogActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		dialog = new Dialog(createSprintDialogActivity.this);
+		dialog = new Dialog(CreateMilestoneDialogActivity.this);
 		dialog.setContentView(R.layout.createmilestone);
 		dialog.show();
 		
@@ -29,11 +29,11 @@ public class createSprintDialogActivity extends Activity{
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				createSprintDialogActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
+				CreateMilestoneDialogActivity.sprintName = (String) ((EditText) dialog.findViewById(R.id.milestoneName)).getText().toString();
 				setResult(0, new Intent(
-						createSprintDialogActivity.this, 
+						CreateMilestoneDialogActivity.this, 
 						TimelineActivity.class)
-							.putExtra("SprintName", createSprintDialogActivity.sprintName
+							.putExtra("SprintName", CreateMilestoneDialogActivity.sprintName
 						));
 				finish();
 			}

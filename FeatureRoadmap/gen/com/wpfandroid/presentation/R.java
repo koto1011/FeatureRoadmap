@@ -12,10 +12,8 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
-        public static final int tooltip=0x7f020001;
-        public static final int tooltip_gross=0x7f020002;
-        public static final int tooltip_neu=0x7f020003;
-        public static final int tooltip_unten=0x7f020004;
+        public static final int tooltip_neu_oben=0x7f020001;
+        public static final int tooltip_neu_unten=0x7f020002;
     }
     public static final class id {
         public static final int ButtonCancel=0x7f050005;
@@ -25,7 +23,6 @@ public final class R {
         public static final int Pawn=0x7f050013;
         public static final int basic=0x7f050016;
         public static final int beginDate=0x7f05000b;
-        public static final int beschriftung=0x7f05001e;
         public static final int buttonBackWithoutSave=0x7f05001d;
         public static final int buttonSaveAndBack=0x7f05001c;
         public static final int buttons=0x7f050003;

@@ -3,43 +3,42 @@
     android:id="@+id/createItemDialog"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="5sp" >
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/milestoneNameText"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
     <EditText
         android:id="@+id/milestoneName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <requestFocus />
-    </EditText>
-
-    <LinearLayout
-        android:id="@+id/buttons"
-        android:layout_width="321dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" >
-
+        android:singleLine="true" >
+    </EditText>
+
+<LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom" >
+
         <Button
             android:id="@+id/ButtonOk"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.12"
+            android:layout_weight="0.36"
             android:text="@string/Ok" />
-
+
         <Button
             android:id="@+id/ButtonCancel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.08"
+            android:layout_weight="0.36"
             android:text="@string/Cancel" />
-
     </LinearLayout>
 
 </LinearLayout>

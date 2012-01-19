@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/item"
-        android:layout_width="72dp"
-        android:layout_height="88dp"
-        android:layout_gravity="top"
-        android:background="#ff0000" >
-    
-        <View android:id="@+id/Pawn"
-		    android:layout_width="74dp"
-		    android:layout_height="87dp"
-		    android:layout_gravity="top"
-		    android:background="@drawable/tooltip_unten" >
-		</View>
-
-		<TextView
-		    android:id="@+id/milestoneText"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_centerHorizontal="true"
-		    android:layout_centerVertical="true"
-		    android:textColor="#000000"
-		    android:text="TextView" />
-        
-    </RelativeLayout>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/item"
+	android:layout_width="280px"
+	android:layout_height="match_parent"
+	android:layout_gravity="top"
+	android:background="#000000">
+	<View
+		android:id="@+id/Pawn"
+		android:layout_width="match_parent"
+		android:layout_height="150px"
+		android:layout_gravity="top"
+		android:background="@drawable/tooltip_neu_unten">
+	</View>
+	<TextView
+		android:id="@+id/milestoneText"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true"
+		android:textColor="#0000aa"
+		android:text="TextView" 
+		android:textSize="15sp"
+		android:textStyle="bold"
+		android:gravity="center" />
+</RelativeLayout>

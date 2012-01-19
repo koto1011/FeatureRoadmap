@@ -223,12 +223,12 @@ public class TimelineActivity extends Activity
 			int pos = milestoneItem.getPos();
 			
 			int posIndexBest = -1;
-			int difference = 999;
+			int difference = 9999;
 			for(int posIndex = 0; posIndex < positionen.size(); posIndex++)
 			{
-//				Log.e("difference "+ posIndex, " " + difference);
-//				Log.e("aktueller Abstand "+ posIndex, " " + Math.abs(pos - positionen.get(posIndex)));
-//				Log.e("positionen "+ posIndex, " " + positionen.get(posIndex));
+				Log.e("difference "+ posIndex, " " + difference);
+				Log.e("aktueller Abstand "+ posIndex, " " + Math.abs(pos - positionen.get(posIndex)));
+				Log.e("positionen "+ posIndex, " " + positionen.get(posIndex));
 				if(Math.abs(pos - positionen.get(posIndex)) < difference)
 				{
 					difference = Math.abs(pos - positionen.get(posIndex));
@@ -244,7 +244,7 @@ public class TimelineActivity extends Activity
 			int month = -1;
 			for(int k = 0; k < monate.length; k++)
 			{
-				if(monthText.equals(monate[k]))
+				if(monthText.equals(monate[k] + " "))
 				{
 					month = k;
 				}
@@ -283,10 +283,10 @@ public class TimelineActivity extends Activity
         timeline.setOnTouchListener(touchTimeline);
         
         //Test:
-        timelineWidth = (int) Math.round(months * 72 * 2);
+        timelineWidth = (int) Math.round(months * 280 * 1.2);
         
-        Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
-        int height = 100;
+//        Log.e("Width of item: ", ""+ ((RelativeLayout) findViewById(R.id.item)).getWidth());
+        int height = -1;
         Log.e("width: ", ""+timelineWidth);
         
         timeline.setLayoutParams(new LinearLayout.LayoutParams(timelineWidth, 30)); // width and height
@@ -324,7 +324,7 @@ public class TimelineActivity extends Activity
 		
 		for(int monthIndex = 0; monthIndex < months; monthIndex++)
 		{
-			beschriftung = monate[(((beginDateMonth + monthIndex)-1) % 12)] + " " + (beginDateYear + (int) Math.floor(((beginDateMonth + monthIndex)-1) / 12));
+			beschriftung = monate[(((beginDateMonth + monthIndex)) % 12)] + " " + (beginDateYear + (int) Math.floor(((beginDateMonth + monthIndex)) / 12));
 			beschriftungen.add(beschriftung);
 			
 			Log.e("Beschriftung " + monthIndex, beschriftung);
@@ -360,7 +360,7 @@ public class TimelineActivity extends Activity
 			Log.e("milestoneMonth", ""+ (milestoneMonth));
 			
 			String yearText = milestone.getDate().split("/")[0];
-			String monthText = monate[(milestoneMonth-1)];
+			String monthText = monate[(milestoneMonth)];
 			
 			int targetIndex = -1;
 			for(int j = 0; j < beschriftungen.size(); j++)
