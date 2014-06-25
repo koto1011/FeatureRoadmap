@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, FeatureRoadmapActivity!</string>
+    <string name="app_name">FeatureRoadmap</string>
+    
+    <string name="createMilestone">Create New Milestone</string>
+    <string name="createRoadmap">Create New Roadmap</string>
+
+	<string name="Ok">Ok</string>
+	<string name="Cancel">Cancel</string>
+	<string name="SaveAndBack">Save</string>
+	<string name="BackWithoutSave">Cancel</string>
+	
+	<string name="roadmapNameText">Roadmap Name</string>
+	<string name="milestoneNameText">Milestone Name</string>
+	
+	<string name="roadmapBeginDate">Roadmap Begin Date</string>
+	<string name="roadmapEndDate">Roadmap End Date</string>
+	<string name="newRoadmap">New Roadmap</string>
+	<string name="loadRoadmap">Load Roadmap</string>
+	
+	<string name="monat0">Jan</string>
+	<string name="monat1">Feb</string>
+	<string name="monat2">Mar</string>
+	<string name="monat3">Apr</string>
+	<string name="monat4">May</string>
+	<string name="monat5">Jun</string>
+	<string name="monat6">Jul</string>
+	<string name="monat7">Aug</string>
+	<string name="monat8">Sep</string>
+	<string name="monat9">Oct</string>
+	<string name="monat10">Nov</string>
+	<string name="monat11">Dec</string>
+	
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/basic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.wpfandroid.presentation.OwnHorizontalScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/roadmap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:orientation="vertical"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbarDefaultDelayBeforeFade="500000"
+            android:scrollbarFadeDuration="0" >
+
+            <FrameLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/oben"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="#000000" >
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/timeline"
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:background="#0000aa"
+                android:gravity="center" >
+            </RelativeLayout>
+
+            <FrameLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/unten"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:background="#000000" >
+            </FrameLayout>
+        </LinearLayout>
+    </com.wpfandroid.presentation.OwnHorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom" >
+
+        <Button
+            android:id="@+id/buttonSaveAndBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.36"
+            android:gravity="bottom"
+            android:text="@string/SaveAndBack" />
+
+        <Button
+            android:id="@+id/buttonBackWithoutSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.36"
+            android:gravity="bottom"
+            android:text="@string/BackWithoutSave" />
+    </LinearLayout>
+
+</LinearLayout>
